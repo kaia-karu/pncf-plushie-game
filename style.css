@@ -1,7 +1,6 @@
 /* PNCF Plushie Game Styles */
 
-/* ===== Global Styles ===== */
-
+/* ===== Global & Base Styles ===== */
 * {
     margin: 0;
     padding: 0;
@@ -11,145 +10,212 @@
 body {
     min-height: 100vh;
     font-family: "Arial", sans-serif;
-    background: #f2cc9a;
+    background: #F27A24;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
 
-
-/* ===== Game Container ===== */
-
 #app {
     width: 95vw;
     height: 90vh;
-
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-
-/* ===== Screens ===== */
-
+/* ===== Screen Management ===== */
 .screen {
     width: 100%;
     height: 100%;
-
     min-height: 0;
     max-width: 1000px;
-
     background: white;
     border-radius: 30px;
-
-    display: flex;
+    display: none; /* Hide screens by default */
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     padding: 40px;
-
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-
     text-align: center;
 }
 
+.screen.active {
+    display: flex; /* Active screen is shown */
+}
 
-/* ===== Logo ===== */
+/* ===== Typography & Headers ===== */
+h1 {
+    font-size: 2.2rem;
+    color: #42FF18;
+    margin-bottom: 15px;
+}
 
+h2 {
+    font-size: 2rem;
+    color: #F27A24;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.legal-attribution {
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+/* ===== Logo & Visual Placeholders ===== */
 #logo {
     width: 180px;
     height: auto;
     margin-bottom: 30px;
     margin-left: 15px;
-
     animation: float 3s ease-in-out infinite;
 }
 
-
-/* Floating animation */
-
-@keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-
-    100% {
-        transform: translateY(0px);
-    }
+.plushie-avatar {
+    font-size: 5rem;
+    margin-bottom: 20px;
 }
 
-
-/* ===== Text ===== */
-
-h1 {
-    font-size: 2.2rem;
-    color: #2f6b3c;
-    margin-bottom: 15px;
-}
-
-.subtitle {
-    font-size: 1rem;
-    color: #666;
-    line-height: 1.5;
-    margin-bottom: 40px;
-}
-
-
-/* ===== Start Button ===== */
-
-#start-button {
-    background: #f4a261;
+/* ===== Buttons ===== */
+.btn {
+    background: #F27A24;
     color: white;
-
     border: none;
     border-radius: 50px;
-
     padding: 15px 50px;
-
     font-size: 1.2rem;
     font-weight: bold;
-
     cursor: pointer;
-
     transition: all 0.3s ease;
-
-    box-shadow: 0 5px 15px rgba(244, 162, 97, 0.4);
+    box-shadow: 0 5px 15px rgba(242, 122, 36, 0.4);
 }
 
-
-#start-button:hover {
+.btn:hover {
     transform: translateY(-3px);
-    background: #e76f51;
+    background: #ee8f36;
 }
 
-
-#start-button:active {
+.btn:active {
     transform: translateY(1px);
 }
 
+.btn-green {
+    background: #42FF18;
+    color: #111;
+    box-shadow: 0 5px 15px rgba(66, 255, 24, 0.4);
+}
+
+.btn-green:hover {
+    background: #36e012;
+}
+
+/* ===== P-E-A-C-H Progress Tracker ===== */
+.letter-tracker {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.letter-badge {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #eee;
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.letter-badge.active-letter {
+    background: #F27A24;
+    color: white;
+    transform: scale(1.15);
+}
+
+.letter-badge.completed-letter {
+    background: #42FF18;
+    color: #111;
+}
+
+/* ===== Animations ===== */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.pulse {
+    animation: pulseAnim 1.5s infinite;
+}
+
+@keyframes pulseAnim {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.bounce-anim {
+    animation: bounce 0.8s ease infinite alternate;
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-15px); }
+}
+
+
+
+/* ===== Image Styling for Assets ===== */
+.game-image {
+    max-height: 240px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.game-image-wide {
+    max-height: 220px;
+    max-width: 90%;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+/* On mobile screens, scale images down slightly */
+@media (max-width: 500px) {
+    .game-image {
+        max-height: 180px;
+    }
+    .game-image-wide {
+        max-height: 160px;
+    }
+}
+
+
+
 
 /* ===== Mobile Adjustments ===== */
-
 @media (max-width: 500px) {
-
     .screen {
         min-height: 100vh;
         width: 100%;
         border-radius: 0;
     }
-
-    h1 {
-        font-size: 1.8rem;
-    }
-
-    #logo {
-        width: 140px;
-    }
-
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+    #logo { width: 140px; }
 }
