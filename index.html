@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>PNCF Plushie Game</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,30 +12,65 @@
 
     <main id="app">
 
-        <section id="intro-screen" class="screen">
+        <!-- SCREEN 1: INTRO -->
+        <section id="intro-screen" class="screen active">
+            <img src="assets/images/PNCF logo.png" alt="Peaches and Cream Foundation Logo" id="logo">
+            <h1>Peaches and Cream Fun</h1>
+            <p class="subtitle">A Peaches and Cream Foundation Experience</p>
+            <button id="start-button" class="btn">Start</button>
+        </section>
 
-            <img
-                src="assets/images/PNCF logo.png"
-                alt="Peaches and Cream Foundation Logo"
-                id="logo"
-            >
+        <!-- SCREEN 2: GREETING -->
+        <section id="greeting-screen" class="screen">
+            <img src="assets/images/mascot.jpeg" alt="PNCF Plushie Mascot" class="game-image bounce-anim">
+            <h2>Hi friends! I'm your PNCF Plushie!</h2>
+            <button id="greeting-next-btn" class="btn">Next</button>
+        </section>
 
-            <h1>Peaches & Cream Fun</h1>
+        <!-- SCREEN 3: ENGAGEMENT -->
+        <section id="engagement-screen" class="screen">
+            <img src="assets/images/hellofriends.png" alt="PNCF Mascot Hello Friends" class="game-image pulse">
+            <h2>Are you ready for some Peaches & Cream fun?</h2>
+            <button id="ready-btn" class="btn btn-green">YES!</button>
+        </section>
 
-            <p class="subtitle">
-                A Peaches and Cream Foundation Experience
-            </p>
+        <!-- SCREEN 4 & 5: GAMEPLAY & SPELLING -->
+        <section id="game-screen" class="screen">
+            <div class="letter-tracker">
+                <span id="track-P" class="letter-badge">P</span>
+                <span id="track-E" class="letter-badge">E</span>
+                <span id="track-A" class="letter-badge">A</span>
+                <span id="track-C" class="letter-badge">C</span>
+                <span id="track-H" class="letter-badge">H</span>
+            </div>
 
-            <button id="start-button">
-                Start
-            </button>
+            <img id="game-plushie-img" src="assets/images/motorcycle.jpg" alt="PNCF Mascot Action" class="game-image bounce-anim">
 
+            <h2 id="action-instruction">P - Pop up high!</h2>
+            <p id="action-subtext" class="subtitle">Jump, jump, jump!</p>
+
+            <button id="next-action-btn" class="btn btn-green">Done!</button>
+        </section>
+
+        <!-- SCREEN 6: CELEBRATION -->
+        <section id="celebration-screen" class="screen">
+            <img src="assets/images/kidsinvan.png" alt="Peach Wellness Van with Kids" class="game-image-wide">
+            <h2>You did it! Great job!</h2>
+            <button id="celebration-next-btn" class="btn">Continue</button>
+        </section>
+
+        <!-- SCREEN 7: END SCREEN -->
+        <section id="end-screen" class="screen">
+            <h2>See you next time for more Peaches & Cream fun!</h2>
+            <p class="legal-attribution">A Peaches and Cream Foundation experience</p>
+            <div class="button-group">
+                <button id="replay-btn" class="btn">Play Again</button>
+            </div>
         </section>
 
     </main>
 
     <script src="script.js"></script>
-
 </body>
 
 </html>
