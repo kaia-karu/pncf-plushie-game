@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PNCF Plushie Game</title>
+    <title>PNCF Plushy Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -17,20 +17,52 @@
             <img src="assets/images/PNCF logo.png" alt="Peaches and Cream Foundation Logo" id="logo">
             <h1>Peaches and Cream Fun</h1>
             <p class="subtitle">A Peaches and Cream Foundation Experience</p>
+
+            <div class="intro-characters">
+                <div class="intro-character">
+                    <img src="assets/images/characters/monday.png" alt="Monday">
+                    <span>Monday</span>
+                </div>
+                <div class="intro-character">
+                    <img src="assets/images/characters/tuesday.png" alt="Tuesday">
+                    <span>Tuesday</span>
+                </div>
+                <div class="intro-character">
+                    <img src="assets/images/characters/wednesday.png" alt="Wednesday">
+                    <span>Wednesday</span>
+                </div>
+                <div class="intro-character">
+                    <img src="assets/images/characters/thursday.png" alt="Thursday">
+                    <span>Thursday</span>
+                </div>
+                <div class="intro-character">
+                    <img src="assets/images/characters/friday.png" alt="Friday">
+                    <span>Friday</span>
+                </div>
+                <div class="intro-character">
+                    <img src="assets/images/characters/saturday.png" alt="Saturday">
+                    <span>Saturday</span>
+                </div>
+                <div class="intro-character">
+                    <img src="assets/images/characters/sunday.png" alt="Sunday">
+                    <span>Sunday</span>
+                </div>
+            </div>
+
             <button id="start-button" class="btn">Start</button>
         </section>
 
         <!-- SCREEN 2: GREETING -->
         <section id="greeting-screen" class="screen">
             <img src="assets/images/mascot.jpeg" alt="PNCF Plushie Mascot" class="game-image bounce-anim">
-            <h2>Hi friends! I'm your PNCF Plushie!</h2>
+            <h2>Hi friends! I'm your PNCF Plushy!</h2>
             <button id="greeting-next-btn" class="btn">Next</button>
         </section>
 
         <!-- SCREEN 3: ENGAGEMENT -->
         <section id="engagement-screen" class="screen">
             <img src="assets/images/hellofriends.png" alt="PNCF Mascot Hello Friends" class="game-image pulse">
-            <h2>Are you ready for some Peaches & Cream fun?</h2>
+            <h2>Are you ready for some Peaches and Cream fun?</h2>
             <button id="ready-btn" class="btn btn-green">YES!</button>
         </section>
 
@@ -43,8 +75,12 @@
                 <span id="track-C" class="letter-badge">C</span>
                 <span id="track-H" class="letter-badge">H</span>
             </div>
-
-            <img id="game-plushie-img" src="assets/images/motorcycle.jpg" alt="PNCF Mascot Action" class="game-image bounce-anim">
+            
+            <div class="gameplay-stage"></div>
+                <div id="game-characters" class="game-characters">
+                    <!-- Dynamically populated via JS -->
+                </div>
+            </div>
 
             <h2 id="action-instruction">P - Pop up high!</h2>
             <p id="action-subtext" class="subtitle">Jump, jump, jump!</p>
@@ -61,11 +97,33 @@
 
         <!-- SCREEN 7: END SCREEN -->
         <section id="end-screen" class="screen">
-            <h2>See you next time for more Peaches & Cream fun!</h2>
+            <h2>See you next time for more Peaches &amp; Cream fun!</h2>
             <p class="legal-attribution">A Peaches and Cream Foundation experience</p>
+
             <div class="button-group">
+                <button id="characters-btn" class="btn btn-green">Meet Your Peach Wellness Friends!</button>
                 <button id="replay-btn" class="btn">Play Again</button>
             </div>
+        </section>
+
+        <!-- SCREEN 8: CHARACTER GALLERY -->
+        <section id="characters-screen" class="screen">
+            <h2>Meet Your PNCF Friends!</h2>
+            <p class="character-intro">Click on a friend to learn more about them!</p>
+
+            <div id="character-gallery" class="character-gallery"></div>
+
+            <!-- Character Information Card Modal -->
+            <div id="character-card" class="character-card hidden">
+                <button id="close-character-card" class="close-card-btn">&times;</button>
+                <img id="character-card-image" src="" alt="">
+                <h3 id="character-card-name"></h3>
+                <p id="character-card-time" class="character-time"></p>
+                <p id="character-card-role" class="character-role"></p>
+                <p id="character-card-description"></p>
+            </div>
+
+            <button id="characters-back-btn" class="btn">Back</button>
         </section>
 
     </main>
