@@ -96,7 +96,8 @@ const screens = {
     game: document.getElementById('game-screen'),
     celebration: document.getElementById('celebration-screen'),
     end: document.getElementById('end-screen'),
-    characters: document.getElementById('characters-screen')
+    characters: document.getElementById('characters-screen'),
+    motorcycle: document.getElementById('motorcycle-screen')
 };
 
 const characterGallery = document.getElementById('character-gallery');
@@ -233,6 +234,14 @@ document.getElementById('characters-back-btn').addEventListener('click', () => {
 
 document.getElementById('close-character-card').addEventListener('click', () => {
     characterCard.classList.add('hidden');
+});
+
+document.getElementById('motorcycle-btn').addEventListener('click', () => {
+    showScreen('motorcycle');
+});
+
+document.getElementById('motorcycle-back-btn').addEventListener('click', () => {
+    showScreen('end');
 });
 
 // Initialize Gallery on Load

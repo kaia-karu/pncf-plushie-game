@@ -391,6 +391,24 @@ h2 {
     transform: scale(1.1);
 }
 
+
+/* ===== Motorcycle About Section ===== */
+
+.motorcycle-about {
+    max-width: 650px;
+    color: #444;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.website-btn {
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+
 /* ===== Animations ===== */
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
