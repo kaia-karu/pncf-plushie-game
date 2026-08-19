@@ -1,248 +1,1212 @@
-// ===== DATA CONSTANTS =====
+/* =========================================
+   PNCF PEACHES & CREAM FUN
+========================================= */
 
-const characters = [
-    {
+
+/* =========================================
+   GAME DATA
+========================================= */
+
+const characters = {
+
+    monday: {
         name: "Monday",
-        time: "Dawn — 5:30 AM",
-        role: "Self-care helper",
         image: "assets/images/characters/monday.png",
-        description: "Hi, I’m Monday, and I’m here to help you start your week with a positive mindset. I know it can be hard to get out of bed sometimes, especially when you feel anxious or sad. But I’m here to remind you that you are strong, capable, and worthy of happiness. I’ll help you practice some self-care habits, like saying affirmations, writing in a journal, and doing something you love. I’m your Monday, and I’m here to make you feel good about yourself."
+        time: "Monday — Dawn, 5:30 AM",
+        role: "Your Self-Care Friend",
+        intro:
+            "Let's start the week by remembering how strong and capable you are!",
+        description:
+            "Monday helps you practice self-care, positive affirmations, journaling, and doing things you enjoy."
     },
-    {
+
+    tuesday: {
         name: "Tuesday",
-        time: "Midnight — 12:00 AM",
-        role: "Therapist",
         image: "assets/images/characters/tuesday.png",
-        description: "Hello, I’m Tuesday, and I’m here to help you cope with your emotions during the night. I know it can be hard to sleep sometimes, especially when you have a lot of worries or fears. But I’m here to tell you that you are not alone and that everything will be okay. I’ll help you practice some relaxation techniques, like breathing, listening to music, or reading a book. I’m your therapist, Tuesday, and I’m here to make you feel calm and safe."
+        time: "Tuesday — Midnight, 12:00 AM",
+        role: "Your Calm Friend",
+        intro:
+            "Sometimes our minds feel busy. Let's take a moment to slow down together.",
+        description:
+            "Tuesday helps you practice relaxation techniques like breathing, listening to music, and reading."
     },
-    {
+
+    wednesday: {
         name: "Wednesday",
-        time: "Afternoon — 3:30 PM",
-        role: "Teacher",
         image: "assets/images/characters/wednesday.png",
-        description: "Hola, I’m Wednesday, and I’m here to help you boost your mood during the afternoon. I know it can be hard to stay focused sometimes, especially when you feel bored or tired. But I’m here to show you that you can have fun and learn at the same time. I’ll help you practice some creativity skills, like drawing, making crafts, or solving puzzles. I’m your teacher, Wednesday, and I’m here to make you feel smart and curious."
+        time: "Wednesday — Afternoon, 3:30 PM",
+        role: "Your Creativity Friend",
+        intro:
+            "Let's have some fun and use our imagination!",
+        description:
+            "Wednesday helps you practice creativity through drawing, crafts, puzzles, and learning."
     },
-    {
+
+    thursday: {
         name: "Thursday",
-        time: "Noon — 12:00 PM",
-        role: "Coach",
         image: "assets/images/characters/thursday.png",
-        description: "I’m Thursday, and I’m here to help you balance your needs and wants during the busy hours. Sometimes, it can be hard to say no, especially when you feel pressured or guilty. But I’m here to teach you that you have the right to set boundaries and take care of yourself. I’ll help you practice some assertiveness skills, like expressing your feelings, asking for help, or saying no. I’m your coach, Thursday, and I’m here to make you feel confident and respected."
+        time: "Thursday — Noon, 12:00 PM",
+        role: "Your Confidence Friend",
+        intro:
+            "You are allowed to take care of yourself and set boundaries.",
+        description:
+            "Thursday helps you practice assertiveness, expressing feelings, asking for help, and saying no."
     },
-    {
+
+    friday: {
         name: "Friday",
-        time: "Evening — 7:00 PM",
-        role: "Friend",
         image: "assets/images/characters/friday.png",
-        description: "Hey, I’m Friday, and I’m here to help you connect with others and yourself after a long week. I know it can be hard to make friends sometimes, especially when you feel shy or different. But I’m here to show you that you are not alone and that you have something valuable to offer. I’ll help you practice some social skills, like starting a conversation, giving a compliment, or sharing a story. I’m your friend, Friday, and I’m here to make you feel loved and accepted."
+        time: "Friday — Evening, 7:00 PM",
+        role: "Your Social Friend",
+        intro:
+            "You have something special to share with the world!",
+        description:
+            "Friday helps you practice social skills like starting conversations, giving compliments, and sharing stories."
     },
-    {
+
+    saturday: {
         name: "Saturday",
-        time: "Night — 9:00 PM",
-        role: "Fan",
         image: "assets/images/characters/saturday.png",
-        description: "What’s up, I’m Saturday, and I’m here to help you celebrate your achievements and strengths during the night. I know it can be hard to appreciate yourself sometimes, especially when you feel insecure or inadequate. But I’m here to remind you that you are amazing and that you have done so much. I’ll help you practice some gratitude skills, like listing your accomplishments, acknowledging your talents, or thanking someone. I’m your fan, Saturday, and I’m here to make you feel proud and grateful."
+        time: "Saturday — Night, 9:00 PM",
+        role: "Your Cheerleader",
+        intro:
+            "Let's celebrate something awesome about YOU!",
+        description:
+            "Saturday helps you practice gratitude by recognizing accomplishments, talents, and people you appreciate."
     },
-    {
+
+    sunday: {
         name: "Sunday",
-        time: "Morning — 8:30 PM",
-        role: "Mentor",
         image: "assets/images/characters/sunday.png",
-        description: "Aloha, I’m Sunday, and I’m here to help you prepare for the new week with a positive attitude. I know it can be hard to face the unknown sometimes, especially when you feel nervous or scared. But I’m here to encourage you that you can handle anything and that you have the power to change your life. I’ll help you practice some goal-setting skills, like making a plan, breaking it down into steps, or rewarding yourself. I’m your mentor, Sunday, and I’m here to make you feel hopeful and inspired."
+        time: "Sunday — Morning",
+        role: "Your Mentor",
+        intro:
+            "Let's think about where you want to go next!",
+        description:
+            "Sunday helps you practice goal-setting by making plans, breaking goals into steps, and rewarding yourself."
     }
-];
 
-const peachSequence = [
-    {
-        letter: 'P',
-        action: "P - Pop up high!",
-        detail: "Jump high into the air!",
-        characters: ["monday", "thursday"]
-    },
-    {
-        letter: 'E',
-        action: "E - Extend your arms!",
-        detail: "Stretch like a peach tree!",
-        characters: ["tuesday", "friday"]
-    },
-    {
-        letter: 'A',
-        action: "A - Airplane arms!",
-        detail: "Balance and soar!",
-        characters: ["wednesday", "sunday"]
-    },
-    {
-        letter: 'C',
-        action: "C - Clap your hands!",
-        detail: "Clap to the rhythm!",
-        characters: ["friday", "saturday"]
-    },
-    {
-        letter: 'H',
-        action: "H - Hop, hop, hop!",
-        detail: "Hop like a happy bunny!",
-        characters: ["sunday", "monday"]
-    }
-];
-
-// ===== STATE & DOM ELEMENTS =====
-
-let currentStep = 0;
-
-const screens = {
-    intro: document.getElementById('intro-screen'),
-    greeting: document.getElementById('greeting-screen'),
-    engagement: document.getElementById('engagement-screen'),
-    game: document.getElementById('game-screen'),
-    celebration: document.getElementById('celebration-screen'),
-    end: document.getElementById('end-screen'),
-    characters: document.getElementById('characters-screen'),
-    motorcycle: document.getElementById('motorcycle-screen')
 };
 
-const characterGallery = document.getElementById('character-gallery');
-const characterCard = document.getElementById('character-card');
-const characterCardImage = document.getElementById('character-card-image');
-const characterCardName = document.getElementById('character-card-name');
-const characterCardTime = document.getElementById('character-card-time');
-const characterCardRole = document.getElementById('character-card-role');
-const characterCardDescription = document.getElementById('character-card-description');
 
-// ===== UI RENDER & CONTROLLER FUNCTIONS =====
+/* =========================================
+   ACTIVITIES
+========================================= */
 
-function showScreen(screenKey) {
-    Object.values(screens).forEach(screen => screen.classList.remove('active'));
-    if (screens[screenKey]) {
-        screens[screenKey].classList.add('active');
+const activities = [
+
+    {
+        character: "monday",
+
+        letter: "P",
+
+        title: "Pop the Peaches!",
+
+        instruction:
+            "Tap 10 peaches to start your week with some positive energy!",
+
+        type: "tap",
+
+        goal: 10
+    },
+
+
+    {
+        character: "tuesday",
+
+        letter: "E",
+
+        title: "Breathe and Relax",
+
+        instruction:
+            "Take three slow breaths with Tuesday.",
+
+        type: "breathing",
+
+        goal: 3
+    },
+
+
+    {
+        character: "wednesday",
+
+        letter: "A",
+
+        title: "Choose Your Creativity",
+
+        instruction:
+            "Which activity sounds fun to you?",
+
+        type: "choice",
+
+        choices: [
+            "🎨 Draw something",
+            "🧩 Solve a puzzle",
+            "✂️ Make something"
+        ]
+    },
+
+
+    {
+        character: "thursday",
+
+        letter: "C",
+
+        title: "Practice Your Boundaries",
+
+        instruction:
+            "Someone asks you to do something you don't want to do. What could you say?",
+
+        type: "choice",
+
+        choices: [
+            "No, thank you.",
+            "Okay, I guess.",
+            "I don't know."
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        character: "friday",
+
+        letter: "H",
+
+        title: "Make a Connection",
+
+        instruction:
+            "Which would be a friendly way to start a conversation?",
+
+        type: "choice",
+
+        choices: [
+            "Hi! What's your name?",
+            "Don't talk to me.",
+            "I don't want to meet anyone."
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        character: "saturday",
+
+        letter: "E",
+
+        title: "Celebrate Yourself",
+
+        instruction:
+            "Which is something you can be proud of?",
+
+        type: "choice",
+
+        choices: [
+            "Something I worked hard on",
+            "Nothing I've done",
+            "I don't have anything"
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        character: "sunday",
+
+        letter: "S",
+
+        title: "Make a Goal",
+
+        instruction:
+            "Choose something you'd like to work toward.",
+
+        type: "choice",
+
+        choices: [
+            "Learn something new",
+            "Try a new activity",
+            "Help someone"
+        ]
+    },
+
+
+    /* ================================
+       CREAM ACTIVITIES
+    ================================= */
+
+    {
+        character: "monday",
+
+        letter: "C",
+
+        title: "Positive Thought",
+
+        instruction:
+            "Choose a positive thought to carry with you.",
+
+        type: "choice",
+
+        choices: [
+            "I can try my best.",
+            "I can't do anything.",
+            "Nothing will work."
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        character: "tuesday",
+
+        letter: "R",
+
+        title: "Relax Your Body",
+
+        instruction:
+            "Take another slow breath and relax your shoulders.",
+
+        type: "breathing",
+
+        goal: 3
+    },
+
+
+    {
+        character: "wednesday",
+
+        letter: "E",
+
+        title: "Creative Choice",
+
+        instruction:
+            "Pick something creative to do today.",
+
+        type: "choice",
+
+        choices: [
+            "Draw",
+            "Write",
+            "Build"
+        ]
+    },
+
+
+    {
+        character: "thursday",
+
+        letter: "A",
+
+        title: "Ask for Help",
+
+        instruction:
+            "What can you do when something feels too difficult?",
+
+        type: "choice",
+
+        choices: [
+            "Ask someone I trust for help.",
+            "Keep everything to myself.",
+            "Give up immediately."
+        ],
+
+        correct: 0
+    },
+
+
+    {
+        character: "sunday",
+
+        letter: "M",
+
+        title: "One Step at a Time",
+
+        instruction:
+            "Pick one small step toward a goal.",
+
+        type: "choice",
+
+        choices: [
+            "Make a small plan",
+            "Do everything at once",
+            "Forget about it"
+        ],
+
+        correct: 0
     }
+
+];
+
+
+/* =========================================
+   GAME STATE
+========================================= */
+
+let currentActivity = 0;
+
+let peachPoints = 0;
+
+let tapCount = 0;
+
+let breathingCount = 0;
+
+
+/* =========================================
+   SCREEN REFERENCES
+========================================= */
+
+const screens = {
+
+    intro: document.getElementById("intro-screen"),
+
+    greeting: document.getElementById("greeting-screen"),
+
+    tree: document.getElementById("tree-screen"),
+
+    characterIntro:
+        document.getElementById("character-intro-screen"),
+
+    activity:
+        document.getElementById("activity-screen"),
+
+    reward:
+        document.getElementById("reward-screen"),
+
+    celebration:
+        document.getElementById("celebration-screen"),
+
+    characters:
+        document.getElementById("characters-screen")
+
+};
+
+
+/* =========================================
+   SCREEN SWITCHING
+========================================= */
+
+function showScreen(name) {
+
+    Object.values(screens).forEach(screen => {
+
+        screen.classList.remove("active");
+
+    });
+
+    screens[name].classList.add("active");
+
 }
 
-function updateGameStep() {
-    const stepData = peachSequence[currentStep];
 
-    document.getElementById('action-instruction').innerText = stepData.action;
-    document.getElementById('action-subtext').innerText = stepData.detail;
+/* =========================================
+   TREE
+========================================= */
 
-    // Update progress tracker badges
-    peachSequence.forEach(item => {
-        const badge = document.getElementById(`track-${item.letter}`);
-        if (!badge) return;
+function updateTree() {
 
-        badge.classList.remove('active-letter', 'completed-letter');
+    const tree = document.getElementById("tree-stage");
 
-        if (item.letter === stepData.letter) {
-            badge.classList.add('active-letter');
-        } else if (peachSequence.indexOf(item) < currentStep) {
-            badge.classList.add('completed-letter');
+    const message = document.getElementById("tree-message");
+
+
+    if (peachPoints < 3) {
+
+        tree.textContent = "🌱";
+
+        message.textContent =
+            "Your peach tree is just getting started!";
+
+    }
+
+    else if (peachPoints < 6) {
+
+        tree.textContent = "🌿";
+
+        message.textContent =
+            "Your little sprout is growing!";
+
+    }
+
+    else if (peachPoints < 10) {
+
+        tree.textContent = "🌳";
+
+        message.textContent =
+            "Look how big your tree is getting!";
+
+    }
+
+    else {
+
+        tree.textContent = "🍑";
+
+        message.textContent =
+            "Your tree is growing beautiful peaches!";
+
+    }
+
+}
+
+
+/* =========================================
+   WORD TRACKERS
+========================================= */
+
+function createWordTracker(word, containerId) {
+
+    const container =
+        document.getElementById(containerId);
+
+    container.innerHTML = "";
+
+    for (let i = 0; i < word.length; i++) {
+
+        const letter =
+            document.createElement("span");
+
+        letter.className = "word-letter";
+
+        letter.id =
+            `${containerId}-${i}`;
+
+        letter.textContent = word[i];
+
+        container.appendChild(letter);
+
+    }
+
+}
+
+
+function updateWordTracker() {
+
+    const completed =
+        currentActivity;
+
+    const peachLetters =
+        Math.min(completed, 7);
+
+    const creamLetters =
+        Math.max(0, completed - 7);
+
+
+    for (let i = 0; i < 7; i++) {
+
+        const letter =
+            document.getElementById(
+                `peaches-tracker-${i}`
+            );
+
+        if (i < peachLetters) {
+
+            letter.classList.add("completed");
+
         }
-    });
 
-    updateGameCharacters();
-}
-
-function updateGameCharacters() {
-    const stage = document.querySelector('.gameplay-stage');
-    const currentActivity = peachSequence[currentStep];
-
-    // Clear stage
-    stage.innerHTML = "";
-
-    const activeChars = currentActivity.characters.map(name => 
-        characters.find(c => c.name.toLowerCase() === name)
-    ).filter(Boolean);
-
-    // Left character
-    if (activeChars[0]) {
-        const char1 = document.createElement('div');
-        char1.classList.add('game-character');
-        char1.innerHTML = `<img src="${activeChars[0].image}" alt="${activeChars[0].name}">`;
-        stage.appendChild(char1);
     }
 
-    // Motorcycle in the middle
-    const mascotImg = document.createElement('img');
-    mascotImg.id = "game-plushie-img";
-    mascotImg.src = "assets/images/motorcycle.jpg";
-    mascotImg.alt = "PNCF Mascot Action";
-    mascotImg.className = "game-image bounce-anim";
-    stage.appendChild(mascotImg);
 
-    // Right character
-    if (activeChars[1]) {
-        const char2 = document.createElement('div');
-        char2.classList.add('game-character');
-        char2.innerHTML = `<img src="${activeChars[1].image}" alt="${activeChars[1].name}">`;
-        stage.appendChild(char2);
+    for (let i = 0; i < 5; i++) {
+
+        const letter =
+            document.getElementById(
+                `cream-tracker-${i}`
+            );
+
+        if (i < creamLetters) {
+
+            letter.classList.add("completed");
+
+        }
+
     }
+
 }
 
-function createCharacterGallery() {
-    characterGallery.innerHTML = "";
 
-    characters.forEach(character => {
-        const characterButton = document.createElement('button');
-        characterButton.classList.add('character-item');
-        characterButton.innerHTML = `
-            <img src="${character.image}" alt="${character.name}">
-            <h3>${character.name}</h3>
-        `;
+/* =========================================
+   START ACTIVITY
+========================================= */
 
-        characterButton.addEventListener('click', () => showCharacterCard(character));
-        characterGallery.appendChild(characterButton);
+function startActivity() {
+
+    const activity =
+        activities[currentActivity];
+
+    const character =
+        characters[activity.character];
+
+
+    document.getElementById(
+        "activity-character-image"
+    ).src = character.image;
+
+
+    document.getElementById(
+        "activity-character-image"
+    ).alt = character.name;
+
+
+    document.getElementById(
+        "character-intro-name"
+    ).textContent =
+        `Meet ${character.name}!`;
+
+
+    document.getElementById(
+        "character-intro-message"
+    ).textContent =
+        character.intro;
+
+
+    showScreen("characterIntro");
+
+}
+
+
+/* =========================================
+   LOAD ACTIVITY
+========================================= */
+
+function loadActivity() {
+
+    const activity =
+        activities[currentActivity];
+
+    const character =
+        characters[activity.character];
+
+
+    document.getElementById(
+        "activity-character-label"
+    ).textContent =
+        character.name;
+
+
+    document.getElementById(
+        "activity-number"
+    ).textContent =
+        `${currentActivity + 1} / ${activities.length}`;
+
+
+    document.getElementById(
+        "activity-title"
+    ).textContent =
+        activity.title;
+
+
+    document.getElementById(
+        "activity-instruction"
+    ).textContent =
+        activity.instruction;
+
+
+    const area =
+        document.getElementById("activity-area");
+
+    area.innerHTML = "";
+
+
+    document.getElementById(
+        "activity-action-btn"
+    ).style.display = "none";
+
+
+    if (activity.type === "tap") {
+
+        createTapGame(area);
+
+    }
+
+
+    if (activity.type === "breathing") {
+
+        createBreathingGame(area);
+
+    }
+
+
+    if (activity.type === "choice") {
+
+        createChoiceGame(area, activity);
+
+    }
+
+
+    showScreen("activity");
+
+}
+
+
+/* =========================================
+   TAP GAME
+========================================= */
+
+function createTapGame(area) {
+
+    tapCount = 0;
+
+
+    const peach =
+        document.createElement("button");
+
+    peach.className = "tap-peach";
+
+    peach.textContent = "🍑";
+
+
+    const counter =
+        document.createElement("div");
+
+    counter.className = "tap-counter";
+
+    counter.textContent =
+        "Peaches: 0 / 10";
+
+
+    peach.addEventListener("click", () => {
+
+        tapCount++;
+
+        counter.textContent =
+            `Peaches: ${tapCount} / 10`;
+
+
+        if (tapCount >= 10) {
+
+            peach.style.display = "none";
+
+            showActivityDone();
+
+        }
+
     });
+
+
+    area.appendChild(peach);
+
+    area.appendChild(counter);
+
 }
+
+
+/* =========================================
+   BREATHING GAME
+========================================= */
+
+function createBreathingGame(area) {
+
+    breathingCount = 0;
+
+
+    const circle =
+        document.createElement("div");
+
+    circle.className =
+        "breathing-circle";
+
+    circle.textContent =
+        "Breathe";
+
+
+    const counter =
+        document.createElement("div");
+
+    counter.className =
+        "tap-counter";
+
+    counter.textContent =
+        "Breaths: 0 / 3";
+
+
+    const button =
+        document.createElement("button");
+
+    button.className =
+        "btn btn-green";
+
+    button.textContent =
+        "I finished a breath";
+
+
+    button.addEventListener("click", () => {
+
+        breathingCount++;
+
+        counter.textContent =
+            `Breaths: ${breathingCount} / 3`;
+
+
+        if (breathingCount >= 3) {
+
+            button.style.display = "none";
+
+            showActivityDone();
+
+        }
+
+    });
+
+
+    area.appendChild(circle);
+
+    area.appendChild(counter);
+
+    area.appendChild(button);
+
+}
+
+
+/* =========================================
+   CHOICE GAME
+========================================= */
+
+function createChoiceGame(area, activity) {
+
+    activity.choices.forEach((choice, index) => {
+
+        const button =
+            document.createElement("button");
+
+        button.className =
+            "activity-choice";
+
+        button.textContent =
+            choice;
+
+
+        button.addEventListener("click", () => {
+
+            const buttons =
+                area.querySelectorAll(
+                    ".activity-choice"
+                );
+
+
+            buttons.forEach(btn => {
+
+                btn.disabled = true;
+
+            });
+
+
+            if (
+                activity.correct === undefined ||
+                index === activity.correct
+            ) {
+
+                button.classList.add("correct");
+
+                setTimeout(() => {
+
+                    showActivityDone();
+
+                }, 500);
+
+            }
+
+            else {
+
+                button.classList.add("incorrect");
+
+                setTimeout(() => {
+
+                    buttons.forEach(btn => {
+
+                        btn.disabled = false;
+
+                    });
+
+                    button.classList.remove(
+                        "incorrect"
+                    );
+
+                }, 600);
+
+            }
+
+        });
+
+
+        area.appendChild(button);
+
+    });
+
+}
+
+
+/* =========================================
+   ACTIVITY COMPLETE
+========================================= */
+
+function showActivityDone() {
+
+    const button =
+        document.getElementById(
+            "activity-action-btn"
+        );
+
+    button.textContent =
+        "Continue!";
+
+    button.style.display =
+        "inline-block";
+
+}
+
+
+/* =========================================
+   REWARD
+========================================= */
+
+function giveReward() {
+
+    const activity =
+        activities[currentActivity];
+
+
+    peachPoints++;
+
+
+    document.getElementById(
+        "points"
+    ).textContent =
+        peachPoints;
+
+
+    document.getElementById(
+        "earned-letter"
+    ).textContent =
+        activity.letter;
+
+
+    document.getElementById(
+        "reward-message"
+    ).textContent =
+        `You completed ${activity.title}!`;
+
+
+    updateTree();
+
+
+    document.getElementById(
+        "reward-tree"
+    ).textContent =
+        getTreeEmoji();
+
+
+    showScreen("reward");
+
+}
+
+
+function getTreeEmoji() {
+
+    if (peachPoints < 3) {
+
+        return "🌱";
+
+    }
+
+    if (peachPoints < 6) {
+
+        return "🌿";
+
+    }
+
+    if (peachPoints < 10) {
+
+        return "🌳";
+
+    }
+
+    return "🍑";
+
+}
+
+
+/* =========================================
+   NEXT ACTIVITY
+========================================= */
+
+function continueAfterReward() {
+
+    currentActivity++;
+
+    updateWordTracker();
+
+
+    if (
+        currentActivity >=
+        activities.length
+    ) {
+
+        showScreen("celebration");
+
+        return;
+
+    }
+
+
+    showScreen("tree");
+
+}
+
+
+/* =========================================
+   CHARACTER GALLERY
+========================================= */
+
+function buildCharacterGallery() {
+
+    const gallery =
+        document.getElementById(
+            "character-gallery"
+        );
+
+
+    gallery.innerHTML = "";
+
+
+    Object.entries(characters).forEach(
+        ([key, character]) => {
+
+            const item =
+                document.createElement("button");
+
+            item.className =
+                "character-item";
+
+
+            item.innerHTML = `
+
+                <img
+                    src="${character.image}"
+                    alt="${character.name}"
+                >
+
+                <h3>
+                    ${character.name}
+                </h3>
+
+            `;
+
+
+            item.addEventListener(
+                "click",
+                () => {
+
+                    showCharacterCard(character);
+
+                }
+            );
+
+
+            gallery.appendChild(item);
+
+        }
+    );
+
+}
+
 
 function showCharacterCard(character) {
-    characterCardImage.src = character.image;
-    characterCardImage.alt = character.name;
-    characterCardName.innerText = character.name;
-    characterCardTime.innerText = character.time;
-    characterCardRole.innerText = `Your ${character.role}`;
-    characterCardDescription.innerText = character.description;
 
-    characterCard.classList.remove('hidden');
+    document.getElementById(
+        "character-card-image"
+    ).src =
+        character.image;
+
+
+    document.getElementById(
+        "character-card-name"
+    ).textContent =
+        character.name;
+
+
+    document.getElementById(
+        "character-card-time"
+    ).textContent =
+        character.time;
+
+
+    document.getElementById(
+        "character-card-role"
+    ).textContent =
+        character.role;
+
+
+    document.getElementById(
+        "character-card-description"
+    ).textContent =
+        character.description;
+
+
+    document.getElementById(
+        "character-card"
+    ).classList.remove("hidden");
+
 }
 
-// ===== EVENT LISTENERS =====
 
-document.getElementById('start-button').addEventListener('click', () => showScreen('greeting'));
-document.getElementById('greeting-next-btn').addEventListener('click', () => showScreen('engagement'));
+/* =========================================
+   EVENT LISTENERS
+========================================= */
 
-document.getElementById('ready-btn').addEventListener('click', () => {
-    currentStep = 0;
-    updateGameStep();
-    showScreen('game');
-});
 
-document.getElementById('next-action-btn').addEventListener('click', () => {
-    currentStep++;
-    if (currentStep < peachSequence.length) {
-        updateGameStep();
-    } else {
-        showScreen('celebration');
+/* Intro */
+
+document.getElementById(
+    "start-button"
+).addEventListener(
+    "click",
+    () => {
+
+        showScreen("greeting");
+
     }
-});
+);
 
-document.getElementById('celebration-next-btn').addEventListener('click', () => showScreen('end'));
-document.getElementById('replay-btn').addEventListener('click', () => showScreen('intro'));
-document.getElementById('characters-btn').addEventListener('click', () => showScreen('characters'));
 
-document.getElementById('characters-back-btn').addEventListener('click', () => {
-    characterCard.classList.add('hidden');
-    showScreen('end');
-});
+/* Plushy intro */
 
-document.getElementById('close-character-card').addEventListener('click', () => {
-    characterCard.classList.add('hidden');
-});
+document.getElementById(
+    "greeting-next-btn"
+).addEventListener(
+    "click",
+    () => {
 
-document.getElementById('motorcycle-btn').addEventListener('click', () => {
-    showScreen('motorcycle');
-});
+        updateTree();
 
-document.getElementById('motorcycle-back-btn').addEventListener('click', () => {
-    showScreen('end');
-});
+        showScreen("tree");
 
-// Initialize Gallery on Load
-createCharacterGallery();
+    }
+);
+
+
+/* Start activity */
+
+document.getElementById(
+    "start-activity-btn"
+).addEventListener(
+    "click",
+    startActivity
+);
+
+
+/* Character intro -> game */
+
+document.getElementById(
+    "character-next-btn"
+).addEventListener(
+    "click",
+    loadActivity
+);
+
+
+/* Activity -> reward */
+
+document.getElementById(
+    "activity-action-btn"
+).addEventListener(
+    "click",
+    giveReward
+);
+
+
+/* Reward -> next */
+
+document.getElementById(
+    "reward-next-btn"
+).addEventListener(
+    "click",
+    continueAfterReward
+);
+
+
+/* Friends */
+
+document.getElementById(
+    "friends-button"
+).addEventListener(
+    "click",
+    () => {
+
+        showScreen("characters");
+
+    }
+);
+
+
+/* Close character card */
+
+document.getElementById(
+    "close-character-card"
+).addEventListener(
+    "click",
+    () => {
+
+        document.getElementById(
+            "character-card"
+        ).classList.add("hidden");
+
+    }
+);
+
+
+/* Back from character gallery */
+
+document.getElementById(
+    "characters-back-btn"
+).addEventListener(
+    "click",
+    () => {
+
+        showScreen("celebration");
+
+    }
+);
+
+
+/* Play again */
+
+document.getElementById(
+    "play-again-button"
+).addEventListener(
+    "click",
+    () => {
+
+        currentActivity = 0;
+
+        peachPoints = 0;
+
+        updateWordTracker();
+
+        updateTree();
+
+        showScreen("tree");
+
+    }
+);
+
+
+/* =========================================
+   INITIALIZE
+========================================= */
+
+createWordTracker(
+    "PEACHES",
+    "peaches-tracker"
+);
+
+createWordTracker(
+    "CREAM",
+    "cream-tracker"
+);
+
+buildCharacterGallery();
+
+updateTree();

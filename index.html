@@ -4,161 +4,345 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PNCF Plushy Game</title>
+
+    <title>Peaches and Cream Fun</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <main id="app">
+<main id="app">
 
-        <!-- SCREEN 1: INTRO -->
-        <section id="intro-screen" class="screen active">
-            <img src="assets/images/PNCF logo.png" alt="Peaches and Cream Foundation Logo" id="logo">
-            <h1>Peaches and Cream Fun</h1>
-            <p class="subtitle">A Peaches and Cream Foundation Experience</p>
+    <!-- ============================= -->
+    <!-- INTRO SCREEN -->
+    <!-- ============================= -->
 
-            <div class="intro-characters">
-                <div class="intro-character">
-                    <img src="assets/images/characters/monday.png" alt="Monday">
-                    <span>Monday</span>
-                </div>
-                <div class="intro-character">
-                    <img src="assets/images/characters/tuesday.png" alt="Tuesday">
-                    <span>Tuesday</span>
-                </div>
-                <div class="intro-character">
-                    <img src="assets/images/characters/wednesday.png" alt="Wednesday">
-                    <span>Wednesday</span>
-                </div>
-                <div class="intro-character">
-                    <img src="assets/images/characters/thursday.png" alt="Thursday">
-                    <span>Thursday</span>
-                </div>
-                <div class="intro-character">
-                    <img src="assets/images/characters/friday.png" alt="Friday">
-                    <span>Friday</span>
-                </div>
-                <div class="intro-character">
-                    <img src="assets/images/characters/saturday.png" alt="Saturday">
-                    <span>Saturday</span>
-                </div>
-                <div class="intro-character">
-                    <img src="assets/images/characters/sunday.png" alt="Sunday">
-                    <span>Sunday</span>
-                </div>
+    <section id="intro-screen" class="screen active">
+
+        <img
+            src="assets/images/PNCF logo.png"
+            alt="Peaches and Cream Foundation Logo"
+            id="logo"
+        >
+
+        <h1>Peaches and Cream Fun</h1>
+
+        <p class="subtitle">
+            Grow your peach tree and meet your wellness friends!
+        </p>
+
+        <div class="intro-characters">
+
+            <div class="intro-character">
+                <img src="assets/images/characters/monday.png" alt="Monday">
+                <span>Monday</span>
             </div>
 
-            <button id="start-button" class="btn">Start</button>
-        </section>
-
-        <!-- SCREEN 2: GREETING -->
-        <section id="greeting-screen" class="screen">
-            <img src="assets/images/mascot.jpeg" alt="PNCF Plushie Mascot" class="game-image bounce-anim">
-            <h2>Hi friends! I'm your PNCF Plushy!</h2>
-            <button id="greeting-next-btn" class="btn">Next</button>
-        </section>
-
-        <!-- SCREEN 3: ENGAGEMENT -->
-        <section id="engagement-screen" class="screen">
-            <img src="assets/images/hellofriends.png" alt="PNCF Mascot Hello Friends" class="game-image pulse">
-            <h2>Are you ready for some Peaches and Cream fun?</h2>
-            <button id="ready-btn" class="btn btn-green">YES!</button>
-        </section>
-
-        <!-- SCREEN 4 & 5: GAMEPLAY & SPELLING -->
-        <section id="game-screen" class="screen">
-            <div class="letter-tracker">
-                <span id="track-P" class="letter-badge">P</span>
-                <span id="track-E" class="letter-badge">E</span>
-                <span id="track-A" class="letter-badge">A</span>
-                <span id="track-C" class="letter-badge">C</span>
-                <span id="track-H" class="letter-badge">H</span>
-            </div>
-            
-            <div class="gameplay-stage"></div>
-                <div id="game-characters" class="game-characters">
-                    <!-- Dynamically populated via JS -->
-                </div>
+            <div class="intro-character">
+                <img src="assets/images/characters/tuesday.png" alt="Tuesday">
+                <span>Tuesday</span>
             </div>
 
-            <h2 id="action-instruction">P - Pop up high!</h2>
-            <p id="action-subtext" class="subtitle">Jump, jump, jump!</p>
-
-            <button id="next-action-btn" class="btn btn-green">Done!</button>
-        </section>
-
-        <!-- SCREEN 6: CELEBRATION -->
-        <section id="celebration-screen" class="screen">
-            <img src="assets/images/kidsinvan.png" alt="Peach Wellness Van with Kids" class="game-image-wide">
-            <h2>You did it! Great job!</h2>
-            <button id="celebration-next-btn" class="btn">Continue</button>
-        </section>
-
-        <!-- SCREEN 7: END SCREEN -->
-        <section id="end-screen" class="screen">
-            <h2>See you next time for more Peaches &amp; Cream fun!</h2>
-            <p class="legal-attribution">A Peaches and Cream Foundation experience</p>
-
-            <div class="button-group">
-                <button id="characters-btn" class="btn btn-green">Meet Your Peach Wellness Friends!</button>
-                <button id="motorcycle-btn" class="btn btn-green">About Motorcycles &amp; PNCF</button>
-                <button id="replay-btn" class="btn">Play Again</button>
-            </div>
-        </section>
-
-        <!-- SCREEN 8: CHARACTER GALLERY -->
-        <section id="characters-screen" class="screen">
-            <h2>Meet Your PNCF Friends!</h2>
-            <p class="character-intro">Click on a friend to learn more about them!</p>
-
-            <div id="character-gallery" class="character-gallery"></div>
-
-            <!-- Character Information Card Modal -->
-            <div id="character-card" class="character-card hidden">
-                <button id="close-character-card" class="close-card-btn">&times;</button>
-                <img id="character-card-image" src="" alt="">
-                <h3 id="character-card-name"></h3>
-                <p id="character-card-time" class="character-time"></p>
-                <p id="character-card-role" class="character-role"></p>
-                <p id="character-card-description"></p>
+            <div class="intro-character">
+                <img src="assets/images/characters/wednesday.png" alt="Wednesday">
+                <span>Wednesday</span>
             </div>
 
-            <button id="characters-back-btn" class="btn">Back</button>
-        </section>
+            <div class="intro-character">
+                <img src="assets/images/characters/thursday.png" alt="Thursday">
+                <span>Thursday</span>
+            </div>
 
-        <!-- SCREEN 9: MOTORCYCLES & PNCF -->
-        <section id="motorcycle-screen" class="screen">
-            <h2>Motorcycles &amp; Peaches &amp; Cream</h2>
+            <div class="intro-character">
+                <img src="assets/images/characters/friday.png" alt="Friday">
+                <span>Friday</span>
+            </div>
 
-            <p class="motorcycle-about">
-                Motorcycles are an important part of the Peaches and Cream Foundation's
-                story. Through its Professional Women's Motorcycle Organization,
-                Peaches and Cream uses motorcycling to promote confidence, empowerment,
-                leadership, wellness, and community.
-            </p>
+            <div class="intro-character">
+                <img src="assets/images/characters/saturday.png" alt="Saturday">
+                <span>Saturday</span>
+            </div>
 
-            <p class="motorcycle-about">
-                Learn more about the organization's history, mission, and work by
-                visiting the Peaches and Cream Foundation website.
-            </p>
+            <div class="intro-character">
+                <img src="assets/images/characters/sunday.png" alt="Sunday">
+                <span>Sunday</span>
+            </div>
 
-            <a
-                href="https://peachesandcream.org/motorcycle-organization"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn website-btn"
+        </div>
+
+        <button id="start-button" class="btn">
+            Start
+        </button>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- PLUSHY INTRO -->
+    <!-- ============================= -->
+
+    <section id="greeting-screen" class="screen">
+
+        <img
+            src="assets/images/mascot.jpeg"
+            alt="PNCF Plushy"
+            class="game-image bounce-anim"
+        >
+
+        <h2>Hi friends! I'm your PNCF Plushy!</h2>
+
+        <p class="subtitle">
+            We're going on a wellness adventure together!
+        </p>
+
+        <button id="greeting-next-btn" class="btn">
+            Let's Go!
+        </button>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- TREE / HOME SCREEN -->
+    <!-- ============================= -->
+
+    <section id="tree-screen" class="screen">
+
+        <h2>Your Peach Tree</h2>
+
+        <div class="points-display">
+            ⭐ Peach Points:
+            <strong id="points">0</strong>
+        </div>
+
+        <div id="tree-stage" class="tree-stage">
+            🌱
+        </div>
+
+        <p id="tree-message" class="tree-message">
+            Your tree is just getting started!
+        </p>
+
+        <div class="word-progress">
+
+            <h3>PEACHES</h3>
+
+            <div id="peaches-tracker" class="word-tracker"></div>
+
+            <h3>CREAM</h3>
+
+            <div id="cream-tracker" class="word-tracker"></div>
+
+        </div>
+
+        <button id="start-activity-btn" class="btn btn-green">
+            Start Activity
+        </button>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- CHARACTER INTRO -->
+    <!-- ============================= -->
+
+    <section id="character-intro-screen" class="screen">
+
+        <img
+            id="activity-character-image"
+            src=""
+            alt=""
+            class="activity-character"
+        >
+
+        <h2 id="character-intro-name"></h2>
+
+        <p id="character-intro-message" class="subtitle"></p>
+
+        <button id="character-next-btn" class="btn">
+            Let's Play!
+        </button>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- MINI GAME -->
+    <!-- ============================= -->
+
+    <section id="activity-screen" class="screen">
+
+        <div class="activity-header">
+
+            <span id="activity-character-label"></span>
+
+            <span id="activity-number"></span>
+
+        </div>
+
+        <h2 id="activity-title"></h2>
+
+        <p id="activity-instruction" class="subtitle"></p>
+
+        <div id="activity-area" class="activity-area">
+        </div>
+
+        <button
+            id="activity-action-btn"
+            class="btn btn-green"
+        >
+            Done
+        </button>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- REWARD SCREEN -->
+    <!-- ============================= -->
+
+    <section id="reward-screen" class="screen">
+
+        <div class="reward-star">
+            ⭐
+        </div>
+
+        <h2>Great Job!</h2>
+
+        <p id="reward-message" class="subtitle"></p>
+
+        <div class="earned-letter">
+            <span>You earned:</span>
+
+            <strong id="earned-letter"></strong>
+        </div>
+
+        <div id="reward-tree" class="reward-tree">
+            🌱
+        </div>
+
+        <button id="reward-next-btn" class="btn">
+            Continue
+        </button>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- FINAL CELEBRATION -->
+    <!-- ============================= -->
+
+    <section id="celebration-screen" class="screen">
+
+        <div class="final-tree">
+            🍑
+        </div>
+
+        <h2>You Grew a Peach Tree!</h2>
+
+        <p class="subtitle">
+            You completed PEACHES and CREAM!
+        </p>
+
+        <div class="completed-words">
+
+            <div>
+                <strong>PEACHES</strong>
+                <span>✓ Complete!</span>
+            </div>
+
+            <div>
+                <strong>CREAM</strong>
+                <span>✓ Complete!</span>
+            </div>
+
+        </div>
+
+        <p class="celebration-message">
+            You practiced wellness skills, earned Peach Points,
+            and met your Peach Wellness Friends!
+        </p>
+
+        <button id="friends-button" class="btn btn-green">
+            Meet Your Friends
+        </button>
+
+        <button id="play-again-button" class="btn">
+            Play Again
+        </button>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- CHARACTER GALLERY -->
+    <!-- ============================= -->
+
+    <section id="characters-screen" class="screen">
+
+        <h2>Meet Your Peach Wellness Friends!</h2>
+
+        <p class="character-intro">
+            Click on a friend to learn more about them!
+        </p>
+
+        <div
+            id="character-gallery"
+            class="character-gallery"
+        ></div>
+
+        <!-- Character Card -->
+
+        <div
+            id="character-card"
+            class="character-card hidden"
+        >
+
+            <button
+                id="close-character-card"
+                class="close-card-btn"
             >
-                Learn More on Our Website
-            </a>
-
-            <button id="motorcycle-back-btn" class="btn">
-                Back
+                &times;
             </button>
-        </section>
-    </main>
 
-    <script src="script.js"></script>
+            <img
+                id="character-card-image"
+                src=""
+                alt=""
+            >
+
+            <h3 id="character-card-name"></h3>
+
+            <p
+                id="character-card-time"
+                class="character-time"
+            ></p>
+
+            <p
+                id="character-card-role"
+                class="character-role"
+            ></p>
+
+            <p
+                id="character-card-description"
+            ></p>
+
+        </div>
+
+        <button
+            id="characters-back-btn"
+            class="btn"
+        >
+            Back
+        </button>
+
+    </section>
+
+
+</main>
+
+<script src="script.js"></script>
+
 </body>
-
 </html>
