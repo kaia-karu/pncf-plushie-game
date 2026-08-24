@@ -94,252 +94,134 @@ const characters = {
 ========================================= */
 
 const activities = [
-
+    // --- PEACHES ---
     {
         character: "monday",
-
         letter: "P",
-
         title: "Pop the Peaches!",
-
-        instruction:
-            "Tap 10 peaches to start your week with some positive energy!",
-
+        instruction: "Tap 10 bouncing peaches to start your week with energy!",
         type: "tap",
-
         goal: 10
     },
-
-
     {
         character: "tuesday",
-
         letter: "E",
-
         title: "Breathe and Relax",
-
-        instruction:
-            "Take three slow breaths with Tuesday.",
-
+        instruction: "Take three slow breaths with Tuesday.",
         type: "breathing",
-
         goal: 3
     },
-
-
     {
         character: "wednesday",
-
         letter: "A",
-
-        title: "Choose Your Creativity",
-
-        instruction:
-            "Which activity sounds fun to you?",
-
-        type: "choice",
-
-        choices: [
-            "🎨 Draw something",
-            "🧩 Solve a puzzle",
-            "✂️ Make something"
-        ]
+        title: "Catch the Sunshine!",
+        instruction: "Move the basket to catch 10 falling sunshines!",
+        type: "catch"
     },
-
-
     {
         character: "thursday",
-
         letter: "C",
-
         title: "Practice Your Boundaries",
-
-        instruction:
-            "Someone asks you to do something you don't want to do. What could you say?",
-
+        instruction: "Someone asks you to do something you don't want to do. What could you say?",
         type: "choice",
-
-        choices: [
-            "No, thank you.",
-            "Okay, I guess.",
-            "I don't know."
-        ],
-
+        choices: ["No, thank you.", "Okay, I guess.", "I don't know."],
         correct: 0
     },
-
-
     {
         character: "friday",
-
         letter: "H",
-
-        title: "Make a Connection",
-
-        instruction:
-            "Which would be a friendly way to start a conversation?",
-
-        type: "choice",
-
-        choices: [
-            "Hi! What's your name?",
-            "Don't talk to me.",
-            "I don't want to meet anyone."
-        ],
-
-        correct: 0
+        title: "Grow Your Mindset",
+        instruction: "Press and hold the button to grow the peach blossom!",
+        type: "grow"
     },
-
-
     {
         character: "saturday",
-
         letter: "E",
-
         title: "Celebrate Yourself",
-
-        instruction:
-            "Which is something you can be proud of?",
-
+        instruction: "Which is something you can be proud of?",
         type: "choice",
-
-        choices: [
-            "Something I worked hard on",
-            "Nothing I've done",
-            "I don't have anything"
-        ],
-
+        choices: ["Something I worked hard on", "Nothing I've done", "I don't have anything"],
         correct: 0
     },
-
-
     {
         character: "sunday",
-
         letter: "S",
-
         title: "Make a Goal",
-
-        instruction:
-            "Choose something you'd like to work toward.",
-
+        instruction: "Choose something you'd like to work toward.",
         type: "choice",
-
-        choices: [
-            "Learn something new",
-            "Try a new activity",
-            "Help someone"
-        ]
+        choices: ["Learn something new", "Try a new activity", "Help someone"]
     },
 
-
-    /* ================================
-       CREAM ACTIVITIES
-    ================================= */
-
+    // --- AND ---
     {
-        character: "monday",
-
-        letter: "C",
-
-        title: "Positive Thought",
-
-        instruction:
-            "Choose a positive thought to carry with you.",
-
+        character: "friday",
+        letter: "A",
+        title: "Make a Connection",
+        instruction: "Which would be a friendly way to start a conversation?",
         type: "choice",
-
-        choices: [
-            "I can try my best.",
-            "I can't do anything.",
-            "Nothing will work."
-        ],
-
+        choices: ["Hi! What's your name?", "Don't talk to me.", "I don't want to meet anyone."],
         correct: 0
     },
-
-
     {
-        character: "tuesday",
-
-        letter: "R",
-
-        title: "Relax Your Body",
-
-        instruction:
-            "Take another slow breath and relax your shoulders.",
-
-        type: "breathing",
-
-        goal: 3
+        character: "saturday",
+        letter: "N",
+        title: "Gather Inspiration!",
+        instruction: "Catch 10 sunshines to spark your imagination!",
+        type: "catch"
     },
-
-
     {
         character: "wednesday",
-
-        letter: "E",
-
-        title: "Creative Choice",
-
-        instruction:
-            "Pick something creative to do today.",
-
+        letter: "D",
+        title: "Notice the Good",
+        instruction: "Which is a way to notice something good about your day?",
         type: "choice",
-
-        choices: [
-            "Draw",
-            "Write",
-            "Build"
-        ]
+        choices: ["Think of one thing that went well", "Only think about what went wrong", "Ignore how the day went"],
+        correct: 0
     },
 
-
+    // --- CREAM ---
+    {
+        character: "monday",
+        letter: "C",
+        title: "Positive Thought",
+        instruction: "Choose a positive thought to carry with you.",
+        type: "choice",
+        choices: ["I can try my best.", "I can't do anything.", "Nothing will work."],
+        correct: 0
+    },
+    {
+        character: "tuesday",
+        letter: "R",
+        title: "Bloom and Unwind",
+        instruction: "Hold the button down to expand your calm energy!",
+        type: "grow"
+    },
+    {
+        character: "wednesday",
+        letter: "E",
+        title: "Ask for Help",
+        instruction: "What can you do when something feels too difficult?",
+        type: "choice",
+        choices: ["Ask someone I trust for help.", "Keep everything to myself.", "Give up immediately."],
+        correct: 0
+    },
     {
         character: "thursday",
-
         letter: "A",
-
-        title: "Ask for Help",
-
-        instruction:
-            "What can you do when something feels too difficult?",
-
-        type: "choice",
-
-        choices: [
-            "Ask someone I trust for help.",
-            "Keep everything to myself.",
-            "Give up immediately."
-        ],
-
-        correct: 0
+        title: "Catch More Joy!",
+        instruction: "Catch 10 falling sunshines to power up your tree!",
+        type: "catch"
     },
-
-
     {
         character: "sunday",
-
         letter: "M",
-
         title: "One Step at a Time",
-
-        instruction:
-            "Pick one small step toward a goal.",
-
+        instruction: "Pick one small step toward a goal.",
         type: "choice",
-
-        choices: [
-            "Make a small plan",
-            "Do everything at once",
-            "Forget about it"
-        ],
-
+        choices: ["Make a small plan", "Do everything at once", "Forget about it"],
         correct: 0
     }
-
 ];
-
 
 /* =========================================
    GAME STATE
@@ -402,52 +284,40 @@ function showScreen(name) {
 
 
 /* =========================================
-   TREE
+   TREE & GROWTH STAGES
 ========================================= */
 
+function getStageData() {
+    // 15 total activities progression
+    if (peachPoints <= 0) {
+        return { emoji: "🌰", msg: "A tiny seed is planted in the soil..." };
+    } else if (peachPoints <= 3) {
+        return { emoji: "🌱", msg: "Look! A little sprout is taking root!" };
+    } else if (peachPoints <= 7) {
+        return { emoji: "🌿", msg: "Your plant is growing strong stem and leaves!" };
+    } else if (peachPoints <= 14) {
+        return { emoji: "🌳", msg: "Your tree is growing big and tall!" };
+    } else {
+        return { emoji: "🍑", msg: "Congratulations! Your tree grew a sweet peach reward!" };
+    }
+}
+
 function updateTree() {
-
     const tree = document.getElementById("tree-stage");
-
     const message = document.getElementById("tree-message");
+    const stage = getStageData();
 
+    tree.textContent = stage.emoji;
+    message.textContent = stage.msg;
 
-    if (peachPoints < 3) {
+    // Trigger growth animation on update
+    tree.classList.remove("grow-pop");
+    void tree.offsetWidth; // Force CSS reflow
+    tree.classList.add("grow-pop");
+}
 
-        tree.textContent = "🌱";
-
-        message.textContent =
-            "Your peach tree is just getting started!";
-
-    }
-
-    else if (peachPoints < 6) {
-
-        tree.textContent = "🌿";
-
-        message.textContent =
-            "Your little sprout is growing!";
-
-    }
-
-    else if (peachPoints < 10) {
-
-        tree.textContent = "🌳";
-
-        message.textContent =
-            "Look how big your tree is getting!";
-
-    }
-
-    else {
-
-        tree.textContent = "🍑";
-
-        message.textContent =
-            "Your tree is growing beautiful peaches!";
-
-    }
-
+function getTreeEmoji() {
+    return getStageData().emoji;
 }
 
 
@@ -481,48 +351,61 @@ function createWordTracker(word, containerId) {
 }
 
 
+const wordTrackers = [
+
+    { containerId: "peaches-tracker", length: 7 },
+
+    { containerId: "and-tracker", length: 3 },
+
+    { containerId: "cream-tracker", length: 5 }
+
+];
+
+
 function updateWordTracker() {
 
     const completed =
         currentActivity;
 
-    const peachLetters =
-        Math.min(completed, 7);
-
-    const creamLetters =
-        Math.max(0, completed - 7);
+    let lettersUsed = 0;
 
 
-    for (let i = 0; i < 7; i++) {
+    wordTrackers.forEach(tracker => {
 
-        const letter =
-            document.getElementById(
-                `peaches-tracker-${i}`
+        const lettersEarned =
+            Math.max(
+                0,
+                Math.min(
+                    tracker.length,
+                    completed - lettersUsed
+                )
             );
 
-        if (i < peachLetters) {
 
-            letter.classList.add("completed");
+        for (let i = 0; i < tracker.length; i++) {
+
+            const letter =
+                document.getElementById(
+                    `${tracker.containerId}-${i}`
+                );
+
+            if (i < lettersEarned) {
+
+                letter.classList.add("completed");
+
+            }
+            else {
+
+                letter.classList.remove("completed");
+
+            }
 
         }
 
-    }
 
+        lettersUsed += tracker.length;
 
-    for (let i = 0; i < 5; i++) {
-
-        const letter =
-            document.getElementById(
-                `cream-tracker-${i}`
-            );
-
-        if (i < creamLetters) {
-
-            letter.classList.add("completed");
-
-        }
-
-    }
+    });
 
 }
 
@@ -621,6 +504,24 @@ function loadActivity() {
 
     }
 
+    if (activity.type === "catch") {
+
+        createCatchGame(area);
+
+    }
+
+    if (activity.type === "slider") {
+
+        createSliderGame(area);
+
+    }
+
+    if (activity.type === "grow") {
+
+        createGrowGame(area);
+
+    }
+
 
     if (activity.type === "breathing") {
 
@@ -642,54 +543,69 @@ function loadActivity() {
 
 
 /* =========================================
-   TAP GAME
+   BOUNCING TAP GAME
 ========================================= */
 
 function createTapGame(area) {
-
     tapCount = 0;
 
-
-    const peach =
-        document.createElement("button");
-
-    peach.className = "tap-peach";
-
+    const peach = document.createElement("button");
+    peach.className = "tap-peach bouncing";
     peach.textContent = "🍑";
 
-
-    const counter =
-        document.createElement("div");
-
+    const counter = document.createElement("div");
     counter.className = "tap-counter";
-
-    counter.textContent =
-        "Peaches: 0 / 10";
-
-
-    peach.addEventListener("click", () => {
-
-        tapCount++;
-
-        counter.textContent =
-            `Peaches: ${tapCount} / 10`;
-
-
-        if (tapCount >= 10) {
-
-            peach.style.display = "none";
-
-            showActivityDone();
-
-        }
-
-    });
-
+    counter.textContent = "Peaches: 0 / 10";
 
     area.appendChild(peach);
-
     area.appendChild(counter);
 
+    // Physics state
+    let posX = 50;
+    let posY = 50;
+    let speedX = 2.5;
+    let speedY = 2;
+    let animId;
+
+    function movePeach() {
+        const areaRect = area.getBoundingClientRect();
+        const peachRect = peach.getBoundingClientRect();
+
+        const maxX = areaRect.width - peachRect.width;
+        const maxY = areaRect.height - peachRect.height - 40; // leave room for counter
+
+        posX += speedX;
+        posY += speedY;
+
+        if (posX <= 0 || posX >= maxX) speedX *= -1;
+        if (posY <= 0 || posY >= maxY) speedY *= -1;
+
+        // Keep inside bounds
+        posX = Math.max(0, Math.min(posX, maxX));
+        posY = Math.max(0, Math.min(posY, maxY));
+
+        peach.style.left = `${posX}px`;
+        peach.style.top = `${posY}px`;
+
+        animId = requestAnimationFrame(movePeach);
+    }
+
+    peach.addEventListener("click", () => {
+        tapCount++;
+        counter.textContent = `Peaches: ${tapCount} / 10`;
+
+        // Increase speed slightly per hit for extra fun
+        speedX *= 1.05;
+        speedY *= 1.05;
+
+        if (tapCount >= 10) {
+            cancelAnimationFrame(animId);
+            peach.style.display = "none";
+            showActivityDone();
+        }
+    });
+
+    animId = requestAnimationFrame(movePeach);
 }
 
 
@@ -702,6 +618,13 @@ function createBreathingGame(area) {
     breathingCount = 0;
 
 
+    const wrapper =
+        document.createElement("div");
+
+    wrapper.className =
+        "breathing-wrapper";
+
+
     const circle =
         document.createElement("div");
 
@@ -710,6 +633,9 @@ function createBreathingGame(area) {
 
     circle.textContent =
         "Breathe";
+
+
+    wrapper.appendChild(circle);
 
 
     const counter =
@@ -751,7 +677,7 @@ function createBreathingGame(area) {
     });
 
 
-    area.appendChild(circle);
+    area.appendChild(wrapper);
 
     area.appendChild(counter);
 
@@ -839,6 +765,209 @@ function createChoiceGame(area, activity) {
 
 
 /* =========================================
+   ENHANCED CATCH GAME
+========================================= */
+
+function createCatchGame(area) {
+    let caught = 0;
+    const target = 10; // Increased goal length
+
+    const gameBox = document.createElement("div");
+    gameBox.className = "catch-game-area large";
+
+    const basket = document.createElement("div");
+    basket.className = "catch-basket";
+    basket.textContent = "🧺";
+
+    const counter = document.createElement("div");
+    counter.className = "tap-counter";
+    counter.textContent = `Caught: 0 / ${target}`;
+
+    gameBox.appendChild(basket);
+    area.appendChild(gameBox);
+    area.appendChild(counter);
+
+    const moveBasket = (clientX) => {
+        const rect = gameBox.getBoundingClientRect();
+        const x = clientX - rect.left - 35;
+        basket.style.left = `${Math.max(0, Math.min(x, rect.width - 70))}px`;
+    };
+
+    gameBox.addEventListener("mousemove", (e) => moveBasket(e.clientX));
+    gameBox.addEventListener("touchmove", (e) => moveBasket(e.touches[0].clientX));
+
+    function spawnItem() {
+        if (caught >= target) return;
+
+        const item = document.createElement("div");
+        item.className = "falling-item";
+        item.textContent = "☀️";
+        item.style.left = `${Math.random() * (gameBox.clientWidth - 40)}px`;
+        gameBox.appendChild(item);
+
+        let top = 0;
+        const dropInterval = setInterval(() => {
+            top += 5; // Faster drop pace
+            item.style.top = `${top}px`;
+
+            const itemRect = item.getBoundingClientRect();
+            const basketRect = basket.getBoundingClientRect();
+
+            if (
+                itemRect.bottom >= basketRect.top &&
+                itemRect.left < basketRect.right &&
+                itemRect.right > basketRect.left
+            ) {
+                clearInterval(dropInterval);
+                item.remove();
+                caught++;
+                counter.textContent = `Caught: ${caught} / ${target}`;
+
+                if (caught >= target) {
+                    showActivityDone();
+                } else {
+                    setTimeout(spawnItem, 300);
+                }
+            } else if (top > gameBox.clientHeight) {
+                clearInterval(dropInterval);
+                item.remove();
+                setTimeout(spawnItem, 200);
+            }
+        }, 20);
+    }
+
+    spawnItem();
+}
+
+/* =========================================
+   SLIDER BALANCE GAME
+========================================= */
+
+function createSliderGame(area) {
+    const container = document.createElement("div");
+    container.className = "slider-game-container";
+
+    const track = document.createElement("div");
+    track.className = "slider-track";
+
+    const targetZone = document.createElement("div");
+    targetZone.className = "target-zone";
+    track.appendChild(targetZone);
+
+    const slider = document.createElement("input");
+    slider.type = "range";
+    slider.min = "0";
+    slider.max = "100";
+    slider.value = "10";
+    slider.className = "balance-slider";
+
+    const statusMsg = document.createElement("div");
+    statusMsg.className = "tap-counter";
+    statusMsg.textContent = "Slide into the green zone!";
+
+    container.appendChild(track);
+    container.appendChild(slider);
+    area.appendChild(container);
+    area.appendChild(statusMsg);
+
+    let holdTimer = null;
+    let holdTime = 0;
+
+    slider.addEventListener("input", () => {
+        const val = parseInt(slider.value, 10);
+        
+        // Target zone is set between 40% and 60%
+        if (val >= 40 && val <= 60) {
+            if (!holdTimer) {
+                statusMsg.textContent = "Hold it right there... 🧘";
+                holdTimer = setInterval(() => {
+                    holdTime++;
+                    if (holdTime >= 3) {
+                        clearInterval(holdTimer);
+                        statusMsg.textContent = "Balanced & Calmed!";
+                        showActivityDone();
+                    }
+                }, 1000);
+            }
+        } else {
+            clearInterval(holdTimer);
+            holdTimer = null;
+            holdTime = 0;
+            statusMsg.textContent = "Slide into the green zone!";
+        }
+    });
+}
+
+/* =========================================
+   GROW / BREATH HOLD GAME
+========================================= */
+
+function createGrowGame(area) {
+    let progress = 0;
+    let holdInterval = null;
+
+    const container = document.createElement("div");
+    container.className = "grow-game-container";
+
+    const bubble = document.createElement("div");
+    bubble.className = "grow-bubble";
+    bubble.textContent = "🌸";
+
+    const targetRing = document.createElement("div");
+    targetRing.className = "grow-target-ring";
+
+    const instruction = document.createElement("div");
+    instruction.className = "tap-counter";
+    instruction.textContent = "Press & Hold to grow the blossom!";
+
+    const button = document.createElement("button");
+    button.className = "btn btn-green hold-btn";
+    button.textContent = "Hold to Grow";
+
+    container.appendChild(targetRing);
+    container.appendChild(bubble);
+    area.appendChild(container);
+    area.appendChild(instruction);
+    area.appendChild(button);
+
+    function startGrowing() {
+        if (holdInterval) return;
+        holdInterval = setInterval(() => {
+            if (progress < 100) {
+                progress += 2;
+                const scale = 0.8 + (progress / 100) * 1.2;
+                bubble.style.transform = `scale(${scale})`;
+                instruction.textContent = `Growing... ${Math.floor(progress)}%`;
+
+                if (progress >= 100) {
+                    stopGrowing();
+                    button.style.display = "none";
+                    instruction.textContent = "Fully Bloomed! 🌸";
+                    showActivityDone();
+                }
+            }
+        }, 50);
+    }
+
+    function stopGrowing() {
+        clearInterval(holdInterval);
+        holdInterval = null;
+    }
+
+    // Mouse & Touch events for holding
+    button.addEventListener("mousedown", startGrowing);
+    button.addEventListener("mouseup", stopGrowing);
+    button.addEventListener("mouseleave", stopGrowing);
+
+    button.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        startGrowing();
+    });
+    button.addEventListener("touchend", stopGrowing);
+}
+
+
+/* =========================================
    ACTIVITY COMPLETE
 ========================================= */
 
@@ -903,29 +1032,6 @@ function giveReward() {
 }
 
 
-function getTreeEmoji() {
-
-    if (peachPoints < 3) {
-
-        return "🌱";
-
-    }
-
-    if (peachPoints < 6) {
-
-        return "🌿";
-
-    }
-
-    if (peachPoints < 10) {
-
-        return "🌳";
-
-    }
-
-    return "🍑";
-
-}
 
 
 /* =========================================
@@ -1200,6 +1306,11 @@ document.getElementById(
 createWordTracker(
     "PEACHES",
     "peaches-tracker"
+);
+
+createWordTracker(
+    "AND",
+    "and-tracker"
 );
 
 createWordTracker(
