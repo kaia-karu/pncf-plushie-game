@@ -1,4 +1,7 @@
-/* ===== Global & Base Styles ===== */
+/* =========================================
+   GLOBAL
+========================================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -7,206 +10,204 @@
 
 body {
     min-height: 100vh;
-    font-family: "Arial", sans-serif;
+
+    font-family: Arial, sans-serif;
+
     background: #F27A24;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     overflow: hidden;
 }
 
 #app {
     width: 95vw;
-    height: 90vh;
+    height: 92vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* ===== Screen Management ===== */
+
+/* =========================================
+   SCREENS
+========================================= */
+
 .screen {
     width: 100%;
     height: 100%;
-    min-height: 0;
+
     max-width: 1000px;
+
     background: white;
+
     border-radius: 30px;
+
     display: none;
+
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+    padding: 35px;
+
     text-align: center;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.15);
+
     position: relative;
+
+    overflow-y: auto;
 }
 
 .screen.active {
     display: flex;
 }
 
-/* ===== Typography & Headers ===== */
+
+/* =========================================
+   TYPOGRAPHY
+========================================= */
+
 h1 {
-    font-size: 2.2rem;
+    font-size: 2.3rem;
     color: #42FF18;
-    margin-bottom: 15px;
+
+    margin-bottom: 10px;
 }
 
 h2 {
     font-size: 2rem;
+
     color: #F27A24;
-    margin-bottom: 20px;
+
+    margin-bottom: 15px;
+}
+
+h3 {
+    color: #F27A24;
+
+    margin-bottom: 10px;
 }
 
 .subtitle {
     font-size: 1.1rem;
+
     color: #666;
+
     line-height: 1.5;
-    margin-bottom: 30px;
+
+    max-width: 650px;
+
+    margin-bottom: 25px;
 }
 
-.legal-attribution {
-    font-size: 0.9rem;
-    color: #888;
-    margin-top: 15px;
-    margin-bottom: 30px;
-    font-style: italic;
-}
 
-/* ===== Media & Branding ===== */
-#logo {
-    width: 150px;
-    height: auto;
-    margin-bottom: 15px;
-    margin-left: 15px;
-    animation: float 3s ease-in-out infinite;
-}
+/* =========================================
+   BUTTONS
+========================================= */
 
-.game-image {
-    max-height: 240px;
-    width: auto;
-    object-fit: contain;
-    margin-bottom: 20px;
-}
-
-.game-image-wide {
-    max-height: 190px;
-    max-width: 90%;
-    width: auto;
-    object-fit: contain;
-    margin-bottom: 20px;
-}
-
-/* ===== Buttons & Button Groups ===== */
 .btn {
     background: #F27A24;
+
     color: white;
+
     border: none;
+
     border-radius: 50px;
-    padding: 15px 50px;
-    font-size: 1.2rem;
+
+    padding: 14px 40px;
+
+    font-size: 1.1rem;
+
     font-weight: bold;
+
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(242, 122, 36, 0.4);
+
+    margin: 6px;
+
+    transition: all 0.2s ease;
+
+    box-shadow:
+        0 5px 15px rgba(242, 122, 36, 0.3);
 }
 
 .btn:hover {
     transform: translateY(-3px);
-    background: #ee8f36;
-}
-
-.btn:active {
-    transform: translateY(1px);
 }
 
 .btn-green {
     background: #42FF18;
+
     color: #111;
-    box-shadow: 0 5px 15px rgba(66, 255, 24, 0.4);
+
+    box-shadow:
+        0 5px 15px rgba(66, 255, 24, 0.3);
 }
 
-.btn-green:hover {
-    background: #36e012;
+
+/* =========================================
+   LOGO
+========================================= */
+
+#logo {
+    width: 160px;
+
+    margin-bottom: 15px;
+
+    animation: float 3s ease-in-out infinite;
 }
 
-/* End-Screen Stacked Buttons */
-.button-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    width: 100%;
-}
 
-.button-group .btn {
-    width: 100%;
-    max-width: 320px;
-}
+/* =========================================
+   INTRO CHARACTERS
+========================================= */
 
-/* ===== P-E-A-C-H Progress Tracker ===== */
-.letter-tracker {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 25px;
-}
-
-.letter-badge {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background: #eee;
-    color: #aaa;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-}
-
-.letter-badge.active-letter {
-    background: #F27A24;
-    color: white;
-    transform: scale(1.15);
-}
-
-.letter-badge.completed-letter {
-    background: #42FF18;
-    color: #111;
-}
-
-/* ===== Intro Screen Characters ===== */
 .intro-characters {
     width: 100%;
+
     max-width: 850px;
+
     display: flex;
+
     justify-content: center;
+
     align-items: flex-end;
-    gap: 10px;
-    margin: 10px 0 25px;
+
+    gap: 8px;
+
+    margin: 10px 0 20px;
 }
 
 .intro-character {
     flex: 1;
+
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
-    min-width: 0;
 }
 
 .intro-character img {
     width: 100%;
-    height: 150px;
+
+    height: 130px;
+
     object-fit: contain;
-    transition: transform 0.25s ease;
+
+    transition: transform 0.2s ease;
 }
 
 .intro-character span {
-    margin-top: 4px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+
     font-weight: bold;
+
     color: #F27A24;
 }
 
@@ -214,122 +215,463 @@ h2 {
     transform: translateY(-8px) scale(1.05);
 }
 
-/* ===== Gameplay Characters ===== */
-/* Container holding both the characters and mascot */
-.gameplay-stage {
+
+/* =========================================
+   GAME IMAGES
+========================================= */
+
+.game-image {
+    max-height: 220px;
+
+    width: auto;
+
+    object-fit: contain;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   TREE
+========================================= */
+
+.points-display {
+    background: #fff5ed;
+
+    border-radius: 50px;
+
+    padding: 10px 25px;
+
+    color: #F27A24;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+.tree-stage {
+    font-size: 9rem;
+
+    height: 190px;
+
     display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    animation: treeBounce 1.5s ease-in-out infinite;
+}
+
+.tree-message {
+    color: #666;
+
+    margin-bottom: 20px;
+
+    font-size: 1rem;
+}
+
+
+/* =========================================
+   WORD TRACKERS
+========================================= */
+
+.word-progress {
+    margin-bottom: 15px;
+}
+
+.word-progress h3 {
+    font-size: 0.9rem;
+
+    margin-top: 5px;
+
+    margin-bottom: 5px;
+}
+
+.word-tracker {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    margin-bottom: 8px;
+}
+
+.word-letter {
+    width: 32px;
+    height: 32px;
+
+    border-radius: 50%;
+
+    background: #eee;
+
+    color: #aaa;
+
+    display: flex;
+
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    margin-bottom: 20px;
-    width: 100%;
+
+    font-weight: bold;
 }
 
-/* Characters section sitting next to mascot */
-.game-characters {
-    display: flex;
-    align-items: flex-end;
-    gap: 200px;
+.word-letter.completed {
+    background: #42FF18;
+
+    color: #111;
 }
 
-/* Adjust image size inside the gameplay stage */
-.gameplay-stage .game-image {
-    margin-bottom: 0; /* Remove bottom margin so they align evenly */
-}
 
-/* On mobile screens, stack them vertically if screen space is tight */
-@media (max-width: 500px) {
-    .gameplay-stage {
-        flex-direction: column-reverse;
-        gap: 10px;
-    }
-}
+/* =========================================
+   CHARACTER INTRO
+========================================= */
 
-.game-character {
-    display: flex;
-    align-items: flex-end;
-    animation: characterAppear 0.4s ease;
-}
+.activity-character {
+    height: 200px;
 
-.game-character img {
-    height: 120px;
     width: auto;
+
     object-fit: contain;
-    transition: transform 0.25s ease;
+
+    margin-bottom: 10px;
+
+    animation: characterBounce 0.8s ease-in-out infinite alternate;
 }
 
-.game-character:hover img {
-    transform: translateY(-6px);
+
+/* =========================================
+   ACTIVITY SCREEN
+========================================= */
+
+.activity-header {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #888;
+
+    font-size: 0.9rem;
+
+    margin-bottom: 15px;
+}
+
+.activity-area {
+    width: min(90%, 650px);
+
+    min-height: 220px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 20px;
 }
 
 
+/* =========================================
+   ACTIVITY BUTTONS
+========================================= */
 
-/* ===== Character Gallery ===== */
+.activity-choice {
+    width: min(90%, 500px);
+
+    background: white;
+
+    border: 3px solid #F27A24;
+
+    border-radius: 20px;
+
+    padding: 15px;
+
+    margin: 6px;
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.activity-choice:hover {
+    background: #fff3e9;
+
+    transform: translateY(-2px);
+}
+
+.activity-choice.correct {
+    background: #42FF18;
+
+    border-color: #42FF18;
+}
+
+.activity-choice.incorrect {
+    opacity: 0.5;
+}
+
+
+/* =========================================
+   TAP GAME
+========================================= */
+
+.tap-peach {
+    font-size: 4rem;
+
+    border: none;
+
+    background: none;
+
+    cursor: pointer;
+
+    transition: transform 0.1s ease;
+
+    position: relative;
+}
+
+.tap-peach:active {
+    transform: scale(0.8);
+}
+
+.tap-counter {
+    color: #F27A24;
+
+    font-size: 1.2rem;
+
+    font-weight: bold;
+
+    margin-top: 10px;
+}
+
+
+/* =========================================
+   BREATHING GAME
+========================================= */
+
+.breathing-wrapper {
+    width: 100%;
+
+    height: 190px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 15px;
+}
+
+.breathing-circle {
+    width: 110px;
+
+    height: 110px;
+
+    border-radius: 50%;
+
+    background: #42FF18;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #111;
+
+    font-weight: bold;
+
+    animation: breathe 7s ease-in-out infinite;
+}
+
+
+/* =========================================
+   REWARD
+========================================= */
+
+.reward-star {
+    font-size: 5rem;
+
+    animation: starPop 0.6s ease;
+}
+
+.earned-letter {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    margin: 15px;
+}
+
+.earned-letter span {
+    color: #777;
+}
+
+.earned-letter strong {
+    font-size: 4rem;
+
+    color: #F27A24;
+}
+
+.reward-tree {
+    font-size: 7rem;
+
+    margin: 10px;
+
+    animation: treeBounce 1s ease-in-out infinite;
+}
+
+
+/* =========================================
+   FINAL CELEBRATION
+========================================= */
+
+.final-tree {
+    font-size: 10rem;
+
+    animation: treeBounce 1.5s ease-in-out infinite;
+}
+
+.completed-words {
+    display: flex;
+
+    gap: 20px;
+
+    margin: 15px 0;
+}
+
+.completed-words div {
+    display: flex;
+
+    flex-direction: column;
+
+    background: #fff5ed;
+
+    padding: 15px 25px;
+
+    border-radius: 20px;
+}
+
+.completed-words strong {
+    color: #F27A24;
+
+    font-size: 1.3rem;
+}
+
+.completed-words span {
+    color: #42a51e;
+
+    font-size: 0.8rem;
+
+    margin-top: 5px;
+}
+
+.celebration-message {
+    max-width: 550px;
+
+    color: #555;
+
+    line-height: 1.5;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================
+   CHARACTER GALLERY
+========================================= */
+
 .character-intro {
     color: #666;
-    font-size: 1rem;
-    margin-top: -10px;
+
     margin-bottom: 20px;
 }
 
 .character-gallery {
     width: 100%;
-    max-width: 900px;
+
+    max-width: 850px;
+
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 8px;
+
     margin-bottom: 20px;
 }
 
 .character-item {
-    background: #fff;
+    background: white;
+
     border: 3px solid transparent;
+
     border-radius: 20px;
+
     padding: 8px;
+
     cursor: pointer;
-    font-family: inherit;
-    transition: all 0.25s ease;
-}
 
-.character-item img {
-    width: 100%;
-    height: 135px;
-    object-fit: contain;
-    display: block;
-    transition: transform 0.25s ease;
-}
-
-.character-item h3 {
-    margin-top: 5px;
-    font-size: 1rem;
-    color: #F27A24;
+    transition: all 0.2s ease;
 }
 
 .character-item:hover {
     border-color: #42FF18;
+
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
 }
 
-.character-item:hover img {
-    transform: scale(1.05);
+.character-item img {
+    width: 100%;
+
+    height: 130px;
+
+    object-fit: contain;
 }
 
-/* ===== Character Modal Card ===== */
+.character-item h3 {
+    font-size: 0.9rem;
+
+    margin: 5px 0 0;
+}
+
+
+/* =========================================
+   CHARACTER CARD
+========================================= */
+
 .character-card {
-    position: fixed;
+    position: absolute;
+
     top: 50%;
     left: 50%;
+
     transform: translate(-50%, -50%);
+
     width: min(90%, 600px);
-    max-height: 85vh;
+
+    max-height: 85%;
+
     overflow-y: auto;
+
     background: white;
+
     border-radius: 30px;
-    padding: 35px;
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+
+    padding: 30px;
+
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.3);
+
     z-index: 100;
-    text-align: center;
 }
 
 .character-card.hidden {
@@ -337,148 +679,316 @@ h2 {
 }
 
 #character-card-image {
-    height: 220px;
+    height: 180px;
+
     width: auto;
-    max-width: 80%;
+
     object-fit: contain;
-    margin-bottom: 10px;
 }
 
 #character-card-name {
     color: #F27A24;
-    font-size: 2rem;
-    margin-bottom: 5px;
+
+    font-size: 1.8rem;
 }
 
 .character-time {
     color: #666;
-    font-size: 1rem;
-    margin-bottom: 8px;
 }
 
 .character-role {
-    color: #42FF18;
-    font-size: 1.1rem;
+    color: #42a51e;
+
     font-weight: bold;
-    margin-bottom: 15px;
 }
 
 #character-card-description {
-    color: #333;
-    font-size: 1rem;
     line-height: 1.6;
-    max-width: 500px;
-    margin: 0 auto;
+
+    color: #333;
 }
 
 .close-card-btn {
     position: absolute;
+
     top: 12px;
-    right: 18px;
+    right: 15px;
+
     width: 40px;
     height: 40px;
+
     border: none;
-    background: #F27A24;
-    color: white;
+
     border-radius: 50%;
-    font-size: 1.7rem;
-    line-height: 1;
+
+    background: #F27A24;
+
+    color: white;
+
+    font-size: 1.5rem;
+
     cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.close-card-btn:hover {
-    transform: scale(1.1);
 }
 
 
-/* ===== Motorcycle About Section ===== */
+/* =========================================
+   ANIMATIONS
+========================================= */
 
-.motorcycle-about {
-    max-width: 650px;
-    color: #444;
-    font-size: 1.1rem;
-    line-height: 1.7;
-    margin-bottom: 20px;
-}
-
-.website-btn {
-    text-decoration: none;
-    display: inline-block;
-    margin-bottom: 15px;
-}
-
-
-/* ===== Animations ===== */
 @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-}
-
-.pulse {
-    animation: pulseAnim 1.5s infinite;
-}
-
-@keyframes pulseAnim {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-}
-
-.bounce-anim {
-    animation: bounce 0.8s ease infinite alternate;
-}
-
-@keyframes bounce {
-    from { transform: translateY(0); }
-    to { transform: translateY(-15px); }
-}
-
-@keyframes characterAppear {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-    to {
-        opacity: 1;
+    0%, 100% {
         transform: translateY(0);
     }
-}
 
-/* ===== Responsive Breakpoints ===== */
-@media (max-width: 800px) {
-    .character-gallery {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 8px;
-    }
-
-    .character-item img {
-        height: 130px;
+    50% {
+        transform: translateY(-8px);
     }
 }
 
-@media (max-width: 500px) {
+@keyframes treeBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes characterBounce {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes starPop {
+    0% {
+        transform: scale(0);
+    }
+
+    80% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(0.8);
+    }
+
+    50% {
+        transform: scale(1.4);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    body {
+        overflow: auto;
+    }
+
+    #app {
+        width: 100%;
+        height: 100vh;
+    }
+
     .screen {
         min-height: 100vh;
-        width: 100%;
+
         border-radius: 0;
+
+        padding: 25px 15px;
     }
 
-    h1 { font-size: 1.8rem; }
-    h2 { font-size: 1.5rem; }
-    #logo { width: 140px; }
+    .intro-characters {
+        flex-wrap: wrap;
+    }
 
-    .game-image { max-height: 180px; }
-    .game-image-wide { max-height: 160px; }
+    .intro-character {
+        flex: 0 0 13%;
+    }
+
+    .intro-character img {
+        height: 90px;
+    }
+
+    .tree-stage {
+        font-size: 7rem;
+    }
 
     .character-gallery {
-        grid-template-columns: repeat(2, 1fr);
-        max-height: 55vh;
+        grid-template-columns: repeat(3, 1fr);
+
+        max-height: 50vh;
+
         overflow-y: auto;
     }
 
-    .character-item img { height: 120px; }
-    .character-card { padding: 25px; max-height: 85vh; }
-    #character-card-image { height: 160px; }
-    #character-card-name { font-size: 1.6rem; }
-    #character-card-description { font-size: 0.95rem; }
+    .completed-words {
+        flex-direction: column;
+
+        gap: 8px;
+    }
+}
+
+/* Growth Transition Animation */
+.tree-stage.grow-pop,
+.reward-tree.grow-pop {
+    animation: growPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes growPop {
+    0% {
+        transform: scale(0.3);
+        opacity: 0.3;
+    }
+    70% {
+        transform: scale(1.25);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* Dynamic Bouncing Peach */
+.activity-area {
+    position: relative;
+    overflow: hidden;
+}
+
+.tap-peach.bouncing {
+    position: absolute;
+    margin: 0;
+}
+
+/* Catch Game */
+.catch-game-area {
+    width: 100%;
+    max-width: 400px;
+    height: 200px;
+    background: #eef9ff;
+    border: 3px dashed #F27A24;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    touch-action: none;
+}
+
+.catch-basket {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    font-size: 2.5rem;
+    user-select: none;
+}
+
+.falling-item {
+    position: absolute;
+    top: 0;
+    font-size: 1.8rem;
+}
+
+/* Slider Game */
+.slider-game-container {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.slider-track {
+    width: 100%;
+    height: 20px;
+    background: #eee;
+    border-radius: 10px;
+    position: relative;
+}
+
+.target-zone {
+    position: absolute;
+    left: 40%;
+    width: 20%;
+    height: 100%;
+    background: #42FF18;
+    border-radius: 10px;
+}
+
+.balance-slider {
+    width: 100%;
+    cursor: pointer;
+}
+
+
+/* Larger Catch Game */
+.catch-game-area.large {
+    width: 100%;
+    max-width: 550px; /* Expanded size */
+    height: 280px;    /* Expanded height */
+    background: #eef9ff;
+    border: 3px dashed #F27A24;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    touch-action: none;
+}
+
+.catch-basket {
+    position: absolute;
+    bottom: 8px;
+    left: 45%;
+    font-size: 3.5rem; /* Larger icon */
+    user-select: none;
+}
+
+.falling-item {
+    position: absolute;
+    top: 0;
+    font-size: 2.2rem;
+}
+
+/* Grow Game */
+.grow-game-container {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.grow-target-ring {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 4px dashed #42FF18;
+    border-radius: 50%;
+}
+
+.grow-bubble {
+    font-size: 4rem;
+    transition: transform 0.1s linear;
+    user-select: none;
+}
+
+.hold-btn {
+    user-select: none;
+    -webkit-user-select: none;
 }
