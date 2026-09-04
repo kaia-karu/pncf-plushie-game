@@ -122,9 +122,11 @@ const activities = [
         character: "thursday",
         letter: "C",
         title: "Practice Your Boundaries",
-        instruction: "Someone asks you to do something you don't want to do. What could you say?",
+        instruction: "A friend asks to copy your homework, but you don't feel comfortable. What's the best response?",
         type: "choice",
-        choices: ["No, thank you.", "Okay, I guess.", "I don't know."],
+        choices: ["I'm not comfortable with that, but I can help explain it to you!",
+                "Okay fine, but don't tell anyone.",
+                "Ignore them and walk away without saying anything."],
         correct: 0
     },
     {
@@ -137,19 +139,26 @@ const activities = [
     {
         character: "saturday",
         letter: "E",
-        title: "Celebrate Yourself",
-        instruction: "Which is something you can be proud of?",
+        title: "Celebrate Your Effort",
+        instruction: "When you work hard on a challenging goal, what is a great way to celebrate yourself?",
         type: "choice",
-        choices: ["Something I worked hard on", "Nothing I've done", "I don't have anything"],
-        correct: 0
+        choices: [
+            "Ignore my progress and complain because I didn't do it perfectly.",
+            "Acknowledge my effort and give myself credit for my hard work!",
+            "Wait for someone else to notice my effort before feeling happy."
+        ],
+        correct: 1
     },
     {
         character: "sunday",
         letter: "S",
         title: "Make a Goal",
-        instruction: "Choose something you'd like to work toward.",
+        instruction: "You want to start a new project but it feels overwhelming. What do you do?",
         type: "choice",
-        choices: ["Learn something new", "Try a new activity", "Help someone"]
+        choices: ["Break it into small steps, like sketching a quick design first.",
+                 "Try to complete the project in one night without stopping.", 
+                 "Give up because it feels too hard."],
+        correct: 0
     },
 
     // --- AND ---
@@ -157,10 +166,12 @@ const activities = [
         character: "friday",
         letter: "A",
         title: "Make a Connection",
-        instruction: "Which would be a friendly way to start a conversation?",
+        instruction: "You see someone wearing a shirt from your favorite game. How do you start a friendly chat?",
         type: "choice",
-        choices: ["Hi! What's your name?", "Don't talk to me.", "I don't want to meet anyone."],
-        correct: 0
+        choices: ["Wait for them to talk to you.", 
+                 "Tell them you're probably much better at the game than they are.",
+                 "Hey! I love your shirt, that's one of my favorite games too!"],
+        correct: 2
     },
     {
         character: "saturday",
@@ -172,10 +183,12 @@ const activities = [
     {
         character: "wednesday",
         letter: "D",
-        title: "Notice the Good",
-        instruction: "Which is a way to notice something good about your day?",
+        title: "Reframing a Tough Day",
+        instruction: "You had a frustrating day where things didn't go as planned. What helps before going to bed?",
         type: "choice",
-        choices: ["Think of one thing that went well", "Only think about what went wrong", "Ignore how the day went"],
+        choices: ["Reflect on at least one small thing that went well today.",
+                    "Replay the worst part of the day over and over.",
+                    "Assume that tomorrow will go poorly too."],
         correct: 0
     },
 
@@ -186,8 +199,9 @@ const activities = [
         title: "Positive Thought",
         instruction: "Choose a positive thought to carry with you.",
         type: "choice",
-        choices: ["I can try my best.", "I can't do anything.", "Nothing will work."],
-        correct: 0
+        choices: ["I am growing and learning every single day.", 
+                "I have the strength to handle whatever comes my way.", 
+                "My effort matters, and I am proud of trying my best."],
     },
     {
         character: "tuesday",
@@ -202,8 +216,10 @@ const activities = [
         title: "Ask for Help",
         instruction: "What can you do when something feels too difficult?",
         type: "choice",
-        choices: ["Ask someone I trust for help.", "Keep everything to myself.", "Give up immediately."],
-        correct: 0
+        choices: ["Keep everything to myself and try to figure it out.", 
+                 "Give up immediately.",
+                 "Take a breathe and ask someone I trust for help."],
+        correct: 2
     },
     {
         character: "thursday",
@@ -215,11 +231,10 @@ const activities = [
     {
         character: "sunday",
         letter: "M",
-        title: "One Step at a Time",
-        instruction: "Pick one small step toward a goal.",
-        type: "choice",
-        choices: ["Make a small plan", "Do everything at once", "Forget about it"],
-        correct: 0
+        title: "Final Peach Pop!",
+        instruction: "Pop the bouncing peaches to finish your journey!",
+        type: "tap",
+        goal: 10
     }
 ];
 
@@ -535,10 +550,41 @@ function loadActivity() {
         createChoiceGame(area, activity);
 
     }
-
+    
+    if (activity.type === "exercise") {
+        
+        createExerciseGame(area, activity);
+    }
 
     showScreen("activity");
 
+}
+
+/* =========================================
+   exercise GAME
+========================================= */
+
+function createExerciseGame(area, activity) {
+    let done = 0;
+    const counter = document.createElement("div");
+    counter.className = "tap-counter";
+    counter.textContent = `Completed: 0 / ${activity.goal}`;
+
+    const btn = document.createElement("button");
+    btn.className = "btn btn-green";
+    btn.textContent = "I did one! 🏃";
+
+    btn.addEventListener("click", () => {
+        done++;
+        counter.textContent = `Completed: ${done} / ${activity.goal}`;
+        if (done >= activity.goal) {
+            btn.style.display = "none";
+            showActivityDone();
+        }
+    });
+
+    area.appendChild(counter);
+    area.appendChild(btn);
 }
 
 
@@ -904,45 +950,72 @@ function createSliderGame(area) {
 
 function createGrowGame(area) {
     let progress = 0;
+    let activeFlowerIndex = 0;
+    const flowerEmojis = ["🌸", "🌺", "🌼"];
     let holdInterval = null;
 
     const container = document.createElement("div");
-    container.className = "grow-game-container";
+    container.className = "grow-game-container-row";
 
-    const bubble = document.createElement("div");
-    bubble.className = "grow-bubble";
-    bubble.textContent = "🌸";
+    const flowerBoxes = [];
+    const flowerElements = [];
 
-    const targetRing = document.createElement("div");
-    targetRing.className = "grow-target-ring";
+    // Create 3 individual flower elements side-by-side
+    flowerEmojis.forEach((emoji, index) => {
+        const flowerBox = document.createElement("div");
+        flowerBox.className = "grow-flower-box";
+        if (index === 0) flowerBox.classList.add("active-target");
+
+        const ring = document.createElement("div");
+        ring.className = "grow-target-ring-sm";
+
+        const flower = document.createElement("div");
+        flower.className = "grow-flower-icon";
+        flower.textContent = emoji;
+
+        flowerBox.appendChild(ring);
+        flowerBox.appendChild(flower);
+        container.appendChild(flowerBox);
+
+        flowerBoxes.push(flowerBox);
+        flowerElements.push(flower);
+    });
 
     const instruction = document.createElement("div");
     instruction.className = "tap-counter";
-    instruction.textContent = "Press & Hold to grow the blossom!";
+    instruction.textContent = "Press and hold Flower 1 to make it bloom!";
 
-    const button = document.createElement("button");
-    button.className = "btn btn-green hold-btn";
-    button.textContent = "Hold to Grow";
-
-    container.appendChild(targetRing);
-    container.appendChild(bubble);
     area.appendChild(container);
     area.appendChild(instruction);
-    area.appendChild(button);
 
-    function startGrowing() {
-        if (holdInterval) return;
+    function startGrowing(index) {
+        // Only allow growing the current active flower
+        if (index !== activeFlowerIndex || holdInterval) return;
+
         holdInterval = setInterval(() => {
-            if (progress < 100) {
-                progress += 2;
-                const scale = 0.8 + (progress / 100) * 1.2;
-                bubble.style.transform = `scale(${scale})`;
-                instruction.textContent = `Growing... ${Math.floor(progress)}%`;
+            progress += 4;
+            const currentScale = 0.2 + (progress / 100) * 0.8;
+            const currentOpacity = 0.3 + (progress / 100) * 0.7;
 
-                if (progress >= 100) {
-                    stopGrowing();
-                    button.style.display = "none";
-                    instruction.textContent = "Fully Bloomed! 🌸";
+            const activeFlower = flowerElements[activeFlowerIndex];
+            activeFlower.style.transform = `scale(${currentScale})`;
+            activeFlower.style.opacity = currentOpacity;
+
+            if (progress >= 100) {
+                stopGrowing();
+                activeFlower.style.transform = "scale(1)";
+                activeFlower.style.opacity = "1";
+                activeFlower.classList.add("bloomed");
+
+                flowerBoxes[activeFlowerIndex].classList.remove("active-target");
+                activeFlowerIndex++;
+                progress = 0;
+
+                if (activeFlowerIndex < flowerEmojis.length) {
+                    flowerBoxes[activeFlowerIndex].classList.add("active-target");
+                    instruction.textContent = `Great job! Now hold Flower ${activeFlowerIndex + 1}!`;
+                } else {
+                    instruction.textContent = "All 3 flowers bloomed beautifully! 🌸🌺🌼";
                     showActivityDone();
                 }
             }
@@ -954,16 +1027,18 @@ function createGrowGame(area) {
         holdInterval = null;
     }
 
-    // Mouse & Touch events for holding
-    button.addEventListener("mousedown", startGrowing);
-    button.addEventListener("mouseup", stopGrowing);
-    button.addEventListener("mouseleave", stopGrowing);
+    // Attach touch/mouse listeners directly to each flower box
+    flowerBoxes.forEach((box, index) => {
+        box.addEventListener("mousedown", () => startGrowing(index));
+        box.addEventListener("mouseup", stopGrowing);
+        box.addEventListener("mouseleave", stopGrowing);
 
-    button.addEventListener("touchstart", (e) => {
-        e.preventDefault();
-        startGrowing();
+        box.addEventListener("touchstart", (e) => {
+            e.preventDefault();
+            startGrowing(index);
+        });
+        box.addEventListener("touchend", stopGrowing);
     });
-    button.addEventListener("touchend", stopGrowing);
 }
 
 
