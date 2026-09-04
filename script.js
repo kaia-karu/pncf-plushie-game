@@ -616,9 +616,11 @@ function createTapGame(area) {
     function movePeach() {
         const areaRect = area.getBoundingClientRect();
         const peachRect = peach.getBoundingClientRect();
+        const counterRect = counter.getBoundingClientRect();
 
+        // Ensure peach bounces above the counter with a 10px buffer
         const maxX = areaRect.width - peachRect.width;
-        const maxY = areaRect.height - peachRect.height - 40; // leave room for counter
+        const maxY = areaRect.height - peachRect.height - (counterRect.height + 10);
 
         posX += speedX;
         posY += speedY;
